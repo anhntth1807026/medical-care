@@ -81,6 +81,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <input type="file" name="file" class="cloudinary_fileupload" multiple>
+                                        <input type="hidden" name="Thumbnail" id="cloudThumbnail">
                                         <div class="gallery" />
                                     </div>
                                 </div>
@@ -228,18 +229,6 @@
         }
         )
             .bind('cloudinarydone', function (e, data) {
-                console.log(`data.loaded: ${data.loaded},
-      data.total: ${data.total}`)
-            })
-            .bind('fileuploadprogress', function (e, data) {
-                console.log(`fileuploadprogress data.loaded: ${data.loaded},
-      data.total: ${data.total}`);
-            })
-            .bind('cloudinaryprogress', function (e, data) {
-                console.log(`cloudinaryprogress data.loaded: ${data.loaded},
-      data.total: ${data.total}`);
-            })
-            .bind('cloudinarydone', function (e, data) {
                 // inspect data.result for return value with link to the uploaded image and more
                 console.log('Upload result', data.result);
                 // Create a thumbnail of the uploaded image, with 150px width
@@ -250,6 +239,7 @@
                     crop: 'scale'
                 });
                 $('.gallery').prepend(image);
+                $('#cloudThumbnail').val(data.result.secure_url);
             });
 
         //var myWidget = cloudinary.createUploadWidget({
