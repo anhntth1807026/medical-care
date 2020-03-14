@@ -20,6 +20,7 @@ namespace medical_care.Models
         public string UpdatedAt { get; set; }
         public string DeletedAt { get; set; }
         public CompanyStatus Status { get; set; }
+        public ICollection<Policy> Policies { get; set; }
         public Company()
         {
             CreatedAt = DateTime.Now;
