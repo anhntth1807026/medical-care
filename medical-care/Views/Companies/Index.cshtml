@@ -54,12 +54,12 @@
                                     <th>
                                         @Html.DisplayNameFor(model => model.CreatedAt)
                                     </th>
-                                    <th>
+                                    @*<th>
                                         @Html.DisplayNameFor(model => model.UpdatedAt)
                                     </th>
                                     <th>
                                         @Html.DisplayNameFor(model => model.DeletedAt)
-                                    </th>
+                                    </th>*@
                                     <th>
                                         @Html.DisplayNameFor(model => model.Status)
                                     </th>
@@ -78,7 +78,7 @@
                                             @Html.Raw(item.Description)
                                         </td>
                                         <td>
-                                            <img src="@Html.DisplayFor(modelItem => item.Thumbnail)" alt="@Html.DisplayFor(modelItem => item.Name)" />
+                                            <img src="@Html.DisplayFor(modelItem => item.Thumbnail)" width="80" height="70" alt="@Html.DisplayFor(modelItem => item.Name)" />
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Address)
@@ -92,12 +92,12 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.CreatedAt)
                                         </td>
-                                        <td>
+                                        @*<td>
                                             @Html.DisplayFor(modelItem => item.UpdatedAt)
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.DeletedAt)
-                                        </td>
+                                        </td>*@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Status)
                                         </td>

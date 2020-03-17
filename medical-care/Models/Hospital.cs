@@ -25,6 +25,7 @@ namespace medical_care.Models
             CreatedAt = DateTime.Now;
         }
     }
+
     public enum HospitalStatus
     {
         ACTIVE = 1, DEACTIVE = 0

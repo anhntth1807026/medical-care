@@ -1,98 +1,134 @@
 ﻿@model medical_care.Models.Company
 
-@{
-    ViewBag.Title = "Details";
-}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-<h2>Details</h2>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
 
-<div>
-    <h4>Company</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+<style>
+    table {
+        width: 100%;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+    #example_filter {
+        float: right;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
+    #example_paginate {
+        float: right;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Thumbnail)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Thumbnail)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Url)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Url)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedAt)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedAt)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UpdatedAt)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UpdatedAt)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DeletedAt)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DeletedAt)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-
-    </dl>
+    label {
+        display: inline-flex;
+        margin-bottom: .5rem;
+        margin-top: .5rem;
+    }
+</style>
+<div class="app-main__inner">
+    <div class="row">
+        <div class="col-md-6 col-xl-6">
+            <div class="card mb-3">
+                <div class="row" style="margin: 15px">
+                    <div class="col-4">
+                        <div class="widget-heading" style="opacity: .8"><strong>@Html.DisplayNameFor(model => model.Name)</strong></div>
+                        @*<div class="widget-subheading" style="opacity: .5">Last year expenses</div>*@
+                    </div>
+                    <div class="col-8">
+                        <div class="widget-numbers text-success" style="font-weight: bold;font-size: 1.0rem;display: block;">@Html.DisplayFor(model => model.Name)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-6">
+            <div class="card mb-3">
+                <div class="row" style="margin: 15px">
+                    <div class="col-4">
+                        <div class="widget-heading" style="opacity: .8"><strong>@Html.DisplayNameFor(model => model.Description)</strong></div>
+                    </div>
+                    <div class="col-8">
+                        <div class="widget-numbers text-warning" style="font-weight: bold;font-size: 1.0rem;display: block;">@Html.DisplayFor(model => model.Description)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xl-6">
+            <div class="card mb-3">
+                <div class="row" style="margin: 15px">
+                    <div class="col-4">
+                        <div class="widget-heading" style="opacity: .8"><strong>@Html.DisplayNameFor(model => model.Thumbnail)</strong></div>
+                    </div>
+                    <div class="col-8">
+                        <div class="widget-numbers text-success" style="font-weight: bold;font-size: 1.0rem;display: block;">@Html.DisplayFor(model => model.Thumbnail)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-6">
+            <div class="card mb-3">
+                <div class="row" style="margin: 15px">
+                    <div class="col-4">
+                        <div class="widget-heading" style="opacity: .8"><strong>@Html.DisplayNameFor(model => model.Address)</strong></div>
+                    </div>
+                    <div class="col-8">
+                        <div class="widget-numbers text-warning" style="font-weight: bold;font-size: 1.0rem;display: block;">@Html.DisplayFor(model => model.Address)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xl-6">
+            <div class="card mb-3">
+                <div class="row" style="margin: 15px">
+                    <div class="col-4">
+                        <div class="widget-heading" style="opacity: .8"><strong>@Html.DisplayNameFor(model => model.Phone)</strong></div>
+                    </div>
+                    <div class="col-8">
+                        <div class="widget-numbers text-success" style="font-weight: bold;font-size: 1.0rem;display: block;">@Html.DisplayFor(model => model.Phone)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-6">
+            <div class="card mb-3">
+                <div class="row" style="margin: 15px">
+                    <div class="col-4">
+                        <div class="widget-heading" style="opacity: .8"><strong>@Html.DisplayNameFor(model => model.Url)</strong></div>
+                    </div>
+                    <div class="col-8">
+                        <div class="widget-numbers text-warning" style="font-weight: bold;font-size: 1.0rem;display: block;">@Html.DisplayFor(model => model.Url)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p>
+        @Html.ActionLink("Back to List", "Index", "PolicyClient")
+    </p>
 </div>
-<p>
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.CompanyId }) |*@
-    @Html.ActionLink("Back to List", "Index", "PolicyClient")
-</p>
+
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable(
+            {
+                "aLengthMenu": [[5, 10, 25, -1], [5, 10, 25, "All"]],
+                "iDisplayLength": 5
+            }
+        );
+    });
+
+    function checkAll(bx) {
+        var cbs = document.getElementsByTagName('input');
+        for (var i = 0; i < cbs.length; i++) {
+            if (cbs[i].type == 'checkbox') {
+                cbs[i].checked = bx.checked;
+            }
+        }
+    }
+</script>
+

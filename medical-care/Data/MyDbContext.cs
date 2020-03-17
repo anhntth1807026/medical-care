@@ -1,10 +1,13 @@
 using System;
 using System.Data.Entity;
 using System.Linq;
+using medical_care.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+
 namespace medical_care.Data
 {
     
-    public class MyDbContext : DbContext
+    public class MyDbContext : IdentityDbContext
     {
         // Your context has been configured to use a 'MyDbContext' connection string from your application's 
         // configuration file (App.config or Web.config). By default, this connection string targets the 
@@ -16,6 +19,13 @@ namespace medical_care.Data
             : base("name=MyDbContext")
         {
         }
+
+        public static MyDbContext Create()
+        {
+            return new MyDbContext();
+        }
+        //public System.Data.Entity.DbSet<medical_care.Models.AppRole> IdentityRoles { get; set; }
+
         public System.Data.Entity.DbSet<medical_care.Models.Company> Companies { get; set; }
 
         public System.Data.Entity.DbSet<medical_care.Models.Employee> Employees { get; set; }
@@ -29,6 +39,7 @@ namespace medical_care.Data
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
 
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
+        
     }
 
     //public class MyEntity

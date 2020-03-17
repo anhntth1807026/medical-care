@@ -26,9 +26,9 @@ namespace medical_care.Models
             CreatedAt = DateTime.Now;
         }
     }
+
     public enum CompanyStatus
     {
         ACTIVE = 1, DEACTIVE = 0
     }
-
 }

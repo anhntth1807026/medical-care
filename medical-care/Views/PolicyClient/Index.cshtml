@@ -34,7 +34,7 @@
     <div class="col-12">
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <h5 class="card-title">Company</h5>
+                <h5 class="card-title">Policy Details</h5>
                 <div class="container">
                     <div class="row">
                         <table id="example" class="table table-striped table-bordered"
@@ -97,7 +97,7 @@
                                             @Html.DisplayFor(modelItem => item.Hospital.Name)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.Description)
+                                            @Html.Raw(item.Description)
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Amount)
@@ -116,7 +116,7 @@
                                             </td>*@
                                         <td>
                                             @*@Html.ActionLink("Edit", "Edit", new { id = item.PolicyId }) |*@
-                                            @Html.ActionLink("Details", "Details", new { id = item.PolicyId }) |
+                                            @Html.ActionLink("Details", "Details", new { id = item.PolicyId })
                                             @*@Html.ActionLink("Delete", "Delete", new { id = item.PolicyId })*@
                                         </td>
                                         <td>
