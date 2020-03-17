@@ -36,6 +36,7 @@ namespace medical_care.Controllers
             return View(company);
         }
 
+        [Authorize]
         public ActionResult Order(int? id)
         {
             if (id == null)
@@ -51,5 +52,27 @@ namespace medical_care.Controllers
         }
 
 
+        public ActionResult Add(int? id)
+        {
+            
+                if (ModelState.IsValid)
+                {
+                    var policy = db.Policies.Find(id);
+                    
+                    var policyRq = new PolicyRequest()
+                    {
+                        PolicyId = policy.PolicyId,
+                        EmployeeId = 1,
+                        RequestDate = DateTime.Now,
+                        Emi   = policy.Emi,
+                        
+                    };
+                db.PolicyRequests.Add(policyRq);
+                db.SaveChanges();
+                
+            }
+                return RedirectToAction("Index", "PolicyRequests");
+            //return View(policyRq);
+        }
     }
 }

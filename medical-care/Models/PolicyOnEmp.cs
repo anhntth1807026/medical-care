@@ -24,6 +24,7 @@ namespace medical_care.Models
         public virtual Employee Employee { get; set; }
         public virtual Policy Policy { get; set; }
     }
+
     public enum PolOnEmpStatus
     {
         ACTIVE = 1, DEACTIVE = 0

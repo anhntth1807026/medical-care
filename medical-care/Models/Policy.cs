@@ -26,6 +26,7 @@ namespace medical_care.Models
         public virtual Company Company { get; set; }
         public virtual Hospital Hospital { get; set; }
     }
+
     public enum PolicyStatus
     {
         NEW = 1, NORMAL = 0, PENDING = 2, FROZEN = -1

@@ -150,6 +150,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <input type="file" name="file" class="cloudinary_fileupload" multiple>
+                                        <input type="hidden" name="Thumbnail" id="cloudThumbnail">
                                         <div class="gallery" />
                                     </div>
                                 </div>
@@ -166,24 +167,7 @@
 
 <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
 
-@*<script type="text/javascript">
 
-    var myWidget = cloudinary.createUploadWidget({
-        cloudName: 'dhqw9z29d',
-        uploadPreset: 'iqkw4ytj'
-    }, (error, result) => {
-        if (!error && result && result.event === "success") {
-            console.log('Done! Here is the image info: ', result.info);
-        }
-    }
-    )
-
-    document.getElementById("upload_widget").addEventListener("click", function () {
-        myWidget.open();
-    }, false);*@
-
-
-</script>
 @section jsFooter
 {
     <script type="text/javascript">
@@ -194,36 +178,41 @@
             cloud_name: cloudName
         })
         $('.cloudinary_fileupload').unsigned_cloudinary_upload(unsignedUploadPreset, {
-            cloud_name: cloudName,
-            tags: 'browser_uploads'
-        }, {
-            multiple: true
-        }
-        )
-            .bind('cloudinarydone', function (e, data) {
-                console.log(`data.loaded: ${data.loaded},
-                  data.total: ${data.total}`)
-            })
-            .bind('fileuploadprogress', function (e, data) {
-                console.log(`fileuploadprogress data.loaded: ${data.loaded},
-                  data.total: ${data.total}`);
-            })
-            .bind('cloudinaryprogress', function (e, data) {
-                console.log(`cloudinaryprogress data.loaded: ${data.loaded},
-                  data.total: ${data.total}`);
-            })
+                    cloud_name: cloudName,
+                    tags: 'browser_uploads'
+                }, {
+                    multiple: true
+                }
+            )
             .bind('cloudinarydone', function (e, data) {
                 // inspect data.result for return value with link to the uploaded image and more
                 console.log('Upload result', data.result);
                 // Create a thumbnail of the uploaded image, with 150px width
                 var image = $.cloudinary.image(
                     data.result.public_id, {
-                    secure: true,
-                    width: 150,
-                    crop: 'scale'
-                });
+                        secure: true,
+                        width: 150,
+                        crop: 'scale'
+                    });
                 $('.gallery').prepend(image);
+                $('#cloudThumbnail').val(data.result.secure_url);
             });
+
+        //var myWidget = cloudinary.createUploadWidget({
+        //        cloudName: 'dhqw9z29d',
+        //        uploadPreset: 'iqkw4ytj'
+        //    }, (error, result) => {
+        //        if (!error && result && result.event === "success") {
+        //            console.log('Done! Here is the image info: ', result.info);
+        //        }
+        //    }
+        //)
+
+        //document.getElementById("upload_widget").addEventListener("click", function () {
+        //    myWidget.open();
+        //}, false);
+
+
     </script>
     <script>
         CKEDITOR.replace("txtDesc");
