@@ -28,8 +28,6 @@
     }
 </style>
 
-
-
 <div class="row">
     <div class="col-12">
         <div class="main-card mb-3 card">
@@ -69,7 +67,7 @@
                                     <th>
                                         @Html.DisplayNameFor(model => model.Duration)
                                     </th>
-                                    @*<th>
+                                    <th>
                                         @Html.DisplayNameFor(model => model.CreatedAt)
                                     </th>
                                     <th>
@@ -83,7 +81,7 @@
                                     </th>
                                     <th>
                                         @Html.DisplayNameFor(model => model.UpdatedBy)
-                                    </th>*@
+                                    </th>
                                     <th>
                                         @Html.DisplayNameFor(model => model.Status)
                                     </th>
@@ -119,7 +117,7 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Duration)
                                         </td>
-                                        @*<td>
+                                        <td>
                                             @Html.DisplayFor(modelItem => item.CreatedAt)
                                         </td>
                                         <td>
@@ -133,7 +131,7 @@
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.UpdatedBy)
-                                        </td>*@
+                                        </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Status)
                                         </td>
@@ -145,14 +143,16 @@
                                     </tr>
                                 </tbody>
                             }
-
-                        </table>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <script>
     $(document).ready(function () {
         $('#example').DataTable(
