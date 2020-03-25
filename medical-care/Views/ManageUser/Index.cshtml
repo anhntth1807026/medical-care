@@ -1,5 +1,4 @@
-﻿
-@using medical_care.Models;
+﻿@model IEnumerable<medical_care.Models.Employee>
 @*@using PagedList.Mvc;*@
 
 
@@ -20,7 +19,7 @@
     <p>
         Search : @Html.TextBox("SearchKeyword")
         <input type="submit" value="Search" />
-        <a href="/Admin/ManageUser/Index"> Back to Full List</a>
+        <a href="/ManageUser/Index"> Back to Full List</a>
     </p>
 
 }
@@ -34,17 +33,50 @@
         <hr />
 
         <table class="table table-borderer">
-
             <thead>
+            <tr>
+                <th>@Html.ActionLink("Username", "Index", new { SortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })</th>
 
-                <tr>
+                    @*<th>@Html.ActionLink("Email", "Index", new { SortOrder = ViewBag.EmailSortParm, currentFilter = ViewBag.CurrentFilter })</th>*@
 
-                    <th>@Html.ActionLink("Username", "Index", new { SortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })</th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Firstname)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Lastname)
+                    </th>
 
-                    <th>@Html.ActionLink("Name", "Index", new { SortOrder = ViewBag.EmailSortParm, currentFilter = ViewBag.CurrentFilter })</th>
-
-
-                    <th></th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Password)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Address)
+                    </th>
+                    @*<th>
+                        @Html.DisplayNameFor(model => model.Phone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.City)
+                    </th>*@
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.Country)
+                        </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.CreatedAt)
+                    </th>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.UpdatedAt)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DeletedAt)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.UpdatedBy)
+                        </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.EmpStatus)
+                    </th>
+                    <th>Action</th>
 
                 </tr>
 
@@ -53,38 +85,62 @@
             <tbody>
 
                 @foreach (var item in Model)
-
                 {
-
                     <tr>
-
                         <td>@item.UserName</td>
 
-                        <td>@item.Email</td>
+                        @*<td>@item.Email</td>*@
 
                         @*<td>@(item.Gender == true ? "Nam" : "Nữ")</td>*@
 
-
                         <td>
-
-                            @Html.ActionLink("Sửa thông tin", "Edit", new { Id = item.Id }, null) |
-
-                            @Html.ActionLink("Sửa quyền", "EditRole", new { Id = item.Id }, null) |
-
-                            @Html.ActionLink("Xóa", "Delete", new { Id = item.Id }, null)
-
+                            @Html.DisplayFor(modelItem => item.Firstname)
                         </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Lastname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PasswordHash)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        @*<td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.City)
+                        </td>*@
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.Country)
+                            </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CreatedAt)
+                        </td>
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.UpdatedAt)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DeletedAt)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UpdatedBy)
+                            </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EmpStatus)
+                        </td>
+                        <td>
+                            @*@Html.ActionLink("Sửa thông tin", "Edit", new { Id = item.Id }, null) |*@
 
+                            @Html.ActionLink("Sửa quyền", "EditRole", new { Id = item.Id }, null) 
+                            @*|
+                            @Html.ActionLink("Xóa", "Delete", new { Id = item.Id }, null)*@
+                        </td>
                     </tr>
-
                 }
-
             </tbody>
-
         </table>
-
     </div>
-
 </div>
 
 <br />

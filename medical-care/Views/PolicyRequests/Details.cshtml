@@ -1,58 +1,84 @@
 ﻿@model medical_care.Models.PolicyRequest
 
-@{
-    ViewBag.Title = "Details";
-}
-
-<h2>Details</h2>
+<h2></h2>
 
 <div>
-    <h4>PolicyRequest</h4>
+    <h4 class="text-center">He has a policy here is the details @Html.ActionLink("Add policy to employee", "Edit", new { id = Model.RequestId })</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Firstname)
-        </dt>
+    @*<dl class="dl-horizontal ">*@
+        <div class="row pb-3">
+            <div class="col-6 text-center">
+                @Html.DisplayNameFor(model => model.PolicyId)
+            </div>
+            <div class="col-6">
+                @Html.DisplayFor(model => model.PolicyId)
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Firstname)
-        </dd>
+        <div class="row pb-3">
+            <div class="col-6 text-center">
+                @Html.DisplayNameFor(model => model.Policy.Name)
+            </div>
+            <div class="col-6">
+                @Html.DisplayFor(model => model.Policy.Name)
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Policy.Name)
-        </dt>
+        <div class="row pb-3">
+            <div class="col-6 text-center">
+                @Html.DisplayNameFor(model => model.Amount)
+            </div>
+            <div class="col-6">
+                @Html.DisplayFor(model => model.Amount)
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Policy.Name)
-        </dd>
+        <div class="row pb-3">
+            <div class="col-6 text-center">
+                @Html.DisplayNameFor(model => model.Policy.Duration)
+            </div>
+            <div class="col-6">
+                @Html.DisplayFor(model => model.Policy.Duration)
+            </div>
+        </div>
 
-        <dt>
+        <div class="row pb-3">
+            <div class="col-6 text-center">
+                @Html.DisplayNameFor(model => model.Policy.Emi)
+            </div>
+            <div class="col-6">
+                @Html.DisplayFor(model => model.Policy.Emi)
+            </div>
+        </div>
+
+        <div class="row pb-3">
+            <div class="col-6 text-center">
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </div>
+            <div class="col-6">
+                @Html.DisplayFor(model => model.CompanyName)
+            </div>
+        </div>
+
+        @*<dt>
             @Html.DisplayNameFor(model => model.RequestDate)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.RequestDate)
-        </dd>
+        </dd>*@
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Emi)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Emi)
-        </dd>
-
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.Status)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Status)
-        </dd>
+        </dd>*@
 
-    </dl>
+    @*</dl>*@
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.RequestId }) |
+<p class="text-center">
+    @Html.ActionLink("Delete", "Delete", new { id = Model.RequestId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

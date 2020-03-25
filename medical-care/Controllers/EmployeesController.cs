@@ -8,6 +8,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using medical_care.App_Start;
 using medical_care.Data;
 using medical_care.Models;
@@ -26,7 +27,7 @@ namespace medical_care.Controllers
 
         public EmployeesController()
         {
-            
+
         }
 
         public ApplicationUserManager UserManager
@@ -61,7 +62,7 @@ namespace medical_care.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(string username,string email, string password, string firstname, string lastname,string address,string phone,string city)
+        public async Task<ActionResult> Register(string username, string email, string password, string firstname, string lastname, string address, string phone, string city)
         {
             if (ModelState.IsValid)
             {
@@ -117,7 +118,7 @@ namespace medical_care.Controllers
         [HttpPost]
         public ActionResult Login(string username, string password)
         {
-            Employee user = UserManager.Find(username, password);
+            var user = UserManager.Find(username, password);
             //if (user != null)
             //{
             //    var authenticationManager = System.Web.HttpContext.Current.GetOwinContext().Authentication;
@@ -132,6 +133,7 @@ namespace medical_care.Controllers
             //    Debug.WriteLine(JsonConvert.SerializeObject(HttpNotFound()));
             //}
 
+            //var role = db.Roles.Where(r => r.Name == "employee");
             if (user == null)
             {
                 Debug.WriteLine("@@@");
@@ -139,13 +141,58 @@ namespace medical_care.Controllers
                 Debug.WriteLine(JsonConvert.SerializeObject(HttpNotFound()));
                 return HttpNotFound();
             }
+            //else if (user != null && Roles.IsUserInRole(username, "admin"))
+            //{
+            //    bool result = User.IsInRole("admin");
+            //    // success
+            //    var ident = UserManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+            //    //use the instance that has been created. 
+            //    var authManager = HttpContext.GetOwinContext().Authentication;
+            //    authManager.SignIn(
+            //        new AuthenticationProperties { IsPersistent = false }, ident);
+            //    return Redirect("/ManageUser");
+            //}
+
             // success
             var ident = UserManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
             //use the instance that has been created. 
             var authManager = HttpContext.GetOwinContext().Authentication;
             authManager.SignIn(
                 new AuthenticationProperties { IsPersistent = false }, ident);
+
             return Redirect("/PolicyClient");
+        }
+
+        [AllowAnonymous]
+        public ActionResult LoginAdmin()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult LoginAdmin(string username, string password)
+        {
+            var admin = UserManager.Find(username, password);
+            
+            //var role = db.Roles.Where(r => r.Name == "admin");
+
+            //bool result = User.IsInRole("admin");
+
+            if (admin != null && Roles.IsUserInRole(username, "admin"))
+            {
+                //bool result = User.IsInRole("admin");
+                // success
+                var ident = UserManager.CreateIdentity(admin, DefaultAuthenticationTypes.ApplicationCookie);
+                //use the instance that has been created. 
+                var authManager = HttpContext.GetOwinContext().Authentication;
+                authManager.SignIn(
+                    new AuthenticationProperties { IsPersistent = false }, ident);
+                return Redirect("/ManageUser");
+            }
+
+            Debug.WriteLine(admin + "@@@");
+            Debug.WriteLine(JsonConvert.SerializeObject(HttpNotFound()));
+            return HttpNotFound();
         }
 
         public ActionResult Logout()
@@ -155,7 +202,7 @@ namespace medical_care.Controllers
             return View("Login");
         }
 
-        // GET: Employees
+        //GET: Employees
         //public ActionResult Index()
         //{
         //    return View(db.Employees.ToList());
@@ -176,7 +223,7 @@ namespace medical_care.Controllers
         //    return View(employee);
         //}
 
-        // GET: Employees/Create
+        ////GET: Employees/Create
         //public ActionResult Create()
         //{
         //    return View();
@@ -201,7 +248,7 @@ namespace medical_care.Controllers
         //    return View(employee);
         //}
 
-        // GET: Employees/Edit/5
+        ////GET: Employees/Edit/5
         //public ActionResult Edit(int? id)
         //{
         //    if (id == null)

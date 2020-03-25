@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using medical_care.Data;
 using medical_care.Models;
+using Microsoft.AspNet.Identity;
 
 namespace medical_care.Controllers
 {
@@ -59,7 +60,7 @@ namespace medical_care.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.EmployeeId = new SelectList(db.Employees, "EmployeeId", "Firstname", policyRequest.EmployeeId);
+            ViewBag.EmployeeId = new SelectList(db.Employees, "EmployeeId", "Firstname", policyRequest.Id);
             ViewBag.PolicyId = new SelectList(db.Policies, "PolicyId", "Name", policyRequest.PolicyId);
             return View(policyRequest);
         }
@@ -72,11 +73,12 @@ namespace medical_care.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             PolicyRequest policyRequest = db.PolicyRequests.Find(id);
+            
             if (policyRequest == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.EmployeeId = new SelectList(db.Employees, "EmployeeId", "Firstname", policyRequest.EmployeeId);
+            ViewBag.EmployeeId = new SelectList(db.Employees, "EmployeeId", "Firstname", policyRequest.Id);
             ViewBag.PolicyId = new SelectList(db.Policies, "PolicyId", "Name", policyRequest.PolicyId);
             return View(policyRequest);
         }
@@ -86,17 +88,55 @@ namespace medical_care.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RequestId,RequestDate,Emi,Status,EmployeeId,PolicyId")] PolicyRequest policyRequest)
+        public ActionResult Edit(PolicyRequest policyReq, string dateRange)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(policyRequest).State = EntityState.Modified;
+                PolicyRequest currentPolicyRequest = db.PolicyRequests.Find(policyReq.RequestId);
+                if (currentPolicyRequest == null)
+                {
+                    return new HttpNotFoundResult();
+                }
+                
+                var startDate = DateTime.Now;
+                var endDate = DateTime.Now.AddYears(1) ;
+                try
+                {
+                    var dateSplit = dateRange.Split('-');
+                    if (dateSplit.Length != 2)
+                    {
+                        return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "bad Flower");
+                    }
+                    startDate = DateTime.ParseExact(dateSplit[0], "MM/DD/YYYY", null);
+                    endDate = DateTime.ParseExact(dateSplit[1], "MM/DD/YYYY", null);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+                var policyToEmp = new PolicyOnEmp()
+                {
+                    PolicyId = currentPolicyRequest.PolicyId,
+                    EmployeeId = (HttpContext.User.Identity.GetUserId()),
+                    PolicyName = currentPolicyRequest.PolicyName,
+                    PolicyAmount = currentPolicyRequest.Amount,
+                    Emi = currentPolicyRequest.Emi,
+                    PolicyStart = startDate,
+                    PolicyEnd = endDate,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    DeletedAt = DateTime.Now,
+                    Status = PolOnEmpStatus.ACTIVE
+                };
+                Console.WriteLine(policyToEmp);
+                //db.Entry(policyToEmp).State = EntityState.Modified;
+                db.PolicyOnEmps.Add(policyToEmp);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","PolicyOnEmps");
             }
-            ViewBag.EmployeeId = new SelectList(db.Employees, "EmployeeId", "Firstname", policyRequest.EmployeeId);
-            ViewBag.PolicyId = new SelectList(db.Policies, "PolicyId", "Name", policyRequest.PolicyId);
-            return View(policyRequest);
+            ViewBag.EmployeeId = new SelectList(db.Employees, "EmployeeId", "Firstname", policyReq.Id);
+            ViewBag.PolicyId = new SelectList(db.Policies, "PolicyId", "Name", policyReq.PolicyId);
+            return View(policyReq);
         }
 
         // GET: PolicyRequests/Delete/5

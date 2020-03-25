@@ -6,9 +6,9 @@ using System.Web.Mvc;
 using medical_care.Data;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace medical_care.Areas.Admin.Controllers
+namespace medical_care.Controllers
 {
-    [Authorize(Roles = "admin")]
+    //[Authorize(Roles = "admin")]
     public class ManageRoleController : Controller
     {
         private MyDbContext dbContext = new MyDbContext();

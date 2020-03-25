@@ -19,7 +19,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="page-title-actions">
+                @*<div class="page-title-actions">
                     <button type="button" data-toggle="tooltip" title="Example Tooltip" data-placement="bottom"
                             class="btn-shadow mr-3 btn btn-dark">
                         <i class="fa fa-star"></i>
@@ -72,7 +72,7 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div>*@
             </div>
         </div>
         <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
@@ -149,9 +149,12 @@
                                         @Html.LabelFor(model => model.Thumbnail)
                                     </div>
                                     <div class="col-md-8">
-                                        <input type="file" name="file" class="cloudinary_fileupload" multiple>
-                                        <input type="hidden" name="Thumbnail" id="cloudThumbnail">
-                                        <div class="gallery" />
+                                        <input type="hidden" name="Thumbnail" value="" />
+                                        @Html.ValidationMessageFor(model => model.Thumbnail, "", new { @class = "text-danger" })
+                                        <button type="button" id="upload_widget" class="btn-default">Upload files</button>
+                                        <div id="image-preview">
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -170,47 +173,31 @@
 
 @section jsFooter
 {
+    @Scripts.Render("~/bundles/jqueryval")
     <script type="text/javascript">
-        const cloudName = 'dqsgwhxcm';
-        const unsignedUploadPreset = 'dvbs5q0y';
-
-        $.cloudinary.config({
-            cloud_name: cloudName
-        })
-        $('.cloudinary_fileupload').unsigned_cloudinary_upload(unsignedUploadPreset, {
-                    cloud_name: cloudName,
-                    tags: 'browser_uploads'
-                }, {
-                    multiple: true
+        var myWidget = cloudinary.createUploadWidget({
+            cloudName: 'dhqw9z29d',
+            uploadPreset: 'iqkw4ytj'
+        },
+            (error, result) => {
+                if (!error && result && result.event === "success") {
+                    var currentValue = $('input[name="Thumbnail"]').val();
+                    if (currentValue != null && currentValue.length > 0) {
+                        currentValue += ",";
+                    }
+                    currentValue += result.info.url;
+                    $('input[name="Thumbnail"]').val(currentValue);
+                    $('#image-preview').append(`<img src="${result.info.url}" width="100px" class="img-thumbnail">`);
+                    //console.log('Done! Here is the image info: ', result.info);
                 }
-            )
-            .bind('cloudinarydone', function (e, data) {
-                // inspect data.result for return value with link to the uploaded image and more
-                console.log('Upload result', data.result);
-                // Create a thumbnail of the uploaded image, with 150px width
-                var image = $.cloudinary.image(
-                    data.result.public_id, {
-                        secure: true,
-                        width: 150,
-                        crop: 'scale'
-                    });
-                $('.gallery').prepend(image);
-                $('#cloudThumbnail').val(data.result.secure_url);
-            });
+            }
+        )
 
-        //var myWidget = cloudinary.createUploadWidget({
-        //        cloudName: 'dhqw9z29d',
-        //        uploadPreset: 'iqkw4ytj'
-        //    }, (error, result) => {
-        //        if (!error && result && result.event === "success") {
-        //            console.log('Done! Here is the image info: ', result.info);
-        //        }
-        //    }
-        //)
-
-        //document.getElementById("upload_widget").addEventListener("click", function () {
-        //    myWidget.open();
-        //}, false);
+        document.getElementById("upload_widget").addEventListener("click",
+            function () {
+                myWidget.open();
+            },
+            false);
 
 
     </script>

@@ -1,4 +1,6 @@
-﻿@using Microsoft.AspNet.Identity
+﻿
+@using Microsoft.AspNet.Identity
+
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("Logout", "Employees", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -7,18 +9,62 @@
 
         <ul class="nav navbar-nav navbar-right">
             <li>
-                @*@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
-                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", null, null, routeValues: null, htmlAttributes: new { title = "Manage" })
+                <div class="widget-content-left">
+                    <div class="btn-group">
+                        @*@if (User.IsInRole("admin"))
+                        {
+                            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "LoginAdmin", "Employees", routeValues: null, htmlAttributes: new { title = "Manage" })
+                        }*@
+                        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", null, null, routeValues: null, htmlAttributes: new { title = "Manage" })
+                        @*@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
+                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                           class="p-0 btn">
+                            <i class="fa fa-angle-down ml-2 opacity-8"></i>
+                        </a>
+                        <div tabindex="-1" role="menu" aria-hidden="true"
+                             class="dropdown-menu dropdown-menu-right">
+                            <button type="button" tabindex="0" class="dropdown-item">@Html.ActionLink("Your Account", "Edit", "ManageUser")</button>
+                            <button type="button" tabindex="0" class="dropdown-item">
+            <li>
+                <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
             </li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+            </button>
+            </div>
+            </div>
+            </div>
+            </li>
+
         </ul>
     }
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Employees", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Employees", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    @*<ul class="nav navbar-nav navbar-right">
+        <li></li>
+        <li></li>
+        @if (User.IsInRole("admin"))
+            
+        <li></li>
+    </ul>*@
+    <ul class="header-menu nav  navbar-right">
+        <li class="nav-item p-2">
+            @*<a href="javascript:void(0);" class="nav-link">*@
+                @*<i class="nav-link-icon fa fa-database"> </i>*@
+                @Html.ActionLink("Register", "Register", "Employees", routeValues: null, htmlAttributes: new { id = "registerLink" })
+            @*</a>*@
+        </li>
+        <li class="btn-group nav-item p-2">
+            @*<a href="javascript:void(0);" class="nav-link">*@
+                @*<i class="nav-link-icon fa fa-edit"></i>*@
+                @Html.ActionLink("Log in", "Login", "Employees", routeValues: null, htmlAttributes: new { id = "loginLink" })
+            @*</a>*@
+        </li>
+        <li class="dropdown nav-item p-2">
+            @*<a href="javascript:void(0);" class="nav-link">*@
+                @*<i class="nav-link-icon fa fa-cog"></i>*@
+                @Html.ActionLink("Admin LogIn", "LoginAdmin", "Employees", routeValues: null, htmlAttributes: new { id = "loginLink" })
+            @*</a>*@
+        </li>
     </ul>
 }
 

@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using medical_care.Data;
 using medical_care.Models;
+using Microsoft.AspNet.Identity;
 
 namespace medical_care.Controllers
 {
@@ -51,28 +52,44 @@ namespace medical_care.Controllers
             return View(policy);
         }
 
-
-        public ActionResult Add(int? id)
+        public ActionResult AddRequest()
         {
-            
-                if (ModelState.IsValid)
+            return View();
+        }
+
+        [HttpPost]
+
+        [ValidateAntiForgeryToken]
+
+        [ActionName("AddRequest")]
+        public ActionResult AddRequestConfirm(int? id)
+        {
+            if (ModelState.IsValid)
+            {
+                var policy = db.Policies.Find(id);
+
+                var policyRq = new PolicyRequest()
                 {
-                    var policy = db.Policies.Find(id);
-                    
-                    var policyRq = new PolicyRequest()
-                    {
-                        PolicyId = policy.PolicyId,
-                        EmployeeId = 1,
-                        RequestDate = DateTime.Now,
-                        Emi   = policy.Emi,
-                        
-                    };
+                    PolicyId = policy.PolicyId,
+                    Id = (HttpContext.User.Identity.GetUserId()),
+                    RequestDate = DateTime.Now,
+                    Amount = policy.Amount,
+                    PolicyName = policy.Name,
+                    CompanyName = policy.Company.Name
+                };
                 db.PolicyRequests.Add(policyRq);
                 db.SaveChanges();
-                
+
             }
-                return RedirectToAction("Index", "PolicyRequests");
+            return RedirectToAction("Index", "PolicyClient");
             //return View(policyRq);
         }
+
+        // GET: PolicyOnEmps
+        //public ActionResult PolicyOnEmp()
+        //{
+        //    var policyOnEmps = db.PolicyOnEmps.Include(p => p.Employee.Id).Include(p => p.Policy);
+        //    return View(policyOnEmps.ToList());
+        //}
     }
 }
