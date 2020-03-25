@@ -19,7 +19,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="page-title-actions">
+                @*<div class="page-title-actions">
                     <button type="button" data-toggle="tooltip" title="Example Tooltip" data-placement="bottom"
                             class="btn-shadow mr-3 btn btn-dark">
                         <i class="fa fa-star"></i>
@@ -72,7 +72,7 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div>*@
             </div>
         </div>
         <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
@@ -95,7 +95,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="position-relative form-group">
-                                    @Html.LabelFor(model => model.Amount)
+                                    Amount(USD)
 
                                     @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control" } })
 
@@ -116,7 +116,7 @@
                         <div class="form-row">
                             <div class="col-md-6">
                                 <div class="position-relative form-group">
-                                    @Html.LabelFor(model => model.Emi)
+                                    EMI(USD)
 
                                     @Html.EditorFor(model => model.Emi, new { htmlAttributes = new { @class = "form-control" } })
 
@@ -125,7 +125,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="position-relative form-group">
-                                    @Html.LabelFor(model => model.AmountOfYear)
+                                    Amount Of Year(USD)
 
                                     @Html.EditorFor(model => model.AmountOfYear, new { htmlAttributes = new { @class = "form-control" } })
 
@@ -136,7 +136,7 @@
                         <div class="form-row">
                             <div class="col-md-6">
                                 <div class="position-relative form-group">
-                                    @Html.LabelFor(model => model.HospitalId)
+                                    Hospital
 
                                     @Html.DropDownList("HospitalId", null, htmlAttributes: new { @class = "form-control" })
 
@@ -145,7 +145,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="position-relative form-group">
-                                    @Html.LabelFor(model => model.CompanyId)
+                                    Company
 
                                     @Html.DropDownList("CompanyId", null, htmlAttributes: new { @class = "form-control" })
 
@@ -156,7 +156,7 @@
                         <div class="form-row">
                             <div class="col-md-6">
                                 <div class="position-relative form-group">
-                                    @Html.LabelFor(model => model.Duration)
+                                    Duration(Months)
 
                                     @Html.EditorFor(model => model.Duration, new { htmlAttributes = new { @class = "form-control" } })
 

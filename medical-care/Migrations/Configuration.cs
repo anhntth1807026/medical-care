@@ -32,13 +32,13 @@
                   }
                 );
             context.Employees.AddOrUpdate(
-                  p => p.EmployeeId,
+                  p => p.Id,
                   new Models.Employee
                   {
-                      EmployeeId = 1,
+                      Id = "A0011",
                       Firstname = "Lil",
                       Lastname = "Wayne",
-                      Username = "LilWayne001",
+                      UserName = "LilWayne001",
                       Password = "sqwewfd1123",
                       Address = "3/1/2 Wall",
                       Phone = "0921212121",
@@ -78,7 +78,7 @@
                       Amount = 6000.000M,
                       Emi = 500.000M,
                       AmountOfYear = 6000.000M,
-                      Duration = "1",
+                      Duration = 1,
                       CreatedAt = DateTime.Now,
                       UpdatedAt = "3/17/2020",
                       DeletedAt = "Null",

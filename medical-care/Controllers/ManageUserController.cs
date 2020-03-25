@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using medical_care.Data;
 using medical_care.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace medical_care.Areas.Admin.Controllers
+namespace medical_care.Controllers
 {
-    [Authorize(Roles = "admin")]
+    //[Authorize(Roles = "admin")]
     public class ManageUserController : Controller
     {
         // GET: Admin/ManageUser
@@ -17,7 +18,7 @@ namespace medical_care.Areas.Admin.Controllers
         // GET: Admin/ManageUser
         public ActionResult Index(string sortOrder, string searchKeyword, string currentFilter, int? page, string Id)
         {
-            IEnumerable<IdentityUser> model =  dbContext.Users.AsEnumerable();
+            IEnumerable<Employee> model =  dbContext.Employees.AsEnumerable();
 
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -60,9 +61,23 @@ namespace medical_care.Areas.Admin.Controllers
             return View(model);
         }
 
+        //public ActionResult Details(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Employee employee = dbContext.Employees.Find(id);
+        //    if (employee == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(employee);
+        //}
+
         public ActionResult Edit(string Id)
         {
-            Employee model = (Employee) dbContext.Users.Find(Id);
+            var model = dbContext.Employees.Find(Id);
 
             return View(model);
         }
@@ -149,7 +164,7 @@ namespace medical_care.Areas.Admin.Controllers
 
         {
 
-            var model = dbContext.Users.Find(Id);
+            var model = dbContext.Employees.Find(Id);
 
             return View(model);
 

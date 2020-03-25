@@ -43,14 +43,14 @@
                             <thead>
                                 <tr>
                                     <th><input type="checkbox" onclick="checkAll(this)"></th>
-                                    <th>
+                                    @*<th>
                                         @Html.DisplayNameFor(model => model.Firstname)
                                     </th>
                                     <th>
                                         @Html.DisplayNameFor(model => model.Lastname)
-                                    </th>
+                                    </th>*@
                                     <th>
-                                        @Html.DisplayNameFor(model => model.Username)
+                                        @Html.DisplayNameFor(model => model.UserName)
                                     </th>
                                     <th>
                                         @Html.DisplayNameFor(model => model.Password)
@@ -58,12 +58,12 @@
                                     <th>
                                         @Html.DisplayNameFor(model => model.Address)
                                     </th>
-                                    <th>
+                                    @*<th>
                                         @Html.DisplayNameFor(model => model.Phone)
                                     </th>
                                     <th>
                                         @Html.DisplayNameFor(model => model.City)
-                                    </th>
+                                    </th>*@
                                     @*<th>
                                         @Html.DisplayNameFor(model => model.Country)
                                     </th>*@
@@ -90,14 +90,14 @@
                                 <tbody>
                                     <tr>
                                         <td><input type="checkbox" name=""></td>
-                                        <td>
+                                        @*<td>
                                             @Html.DisplayFor(modelItem => item.Firstname)
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Lastname)
-                                        </td>
+                                        </td>*@
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.Username)
+                                            @Html.DisplayFor(modelItem => item.UserName)
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Password)
@@ -105,12 +105,12 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Address)
                                         </td>
-                                        <td>
+                                        @*<td>
                                             @Html.DisplayFor(modelItem => item.Phone)
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.City)
-                                        </td>
+                                        </td>*@
                                         @*<td>
                                             @Html.DisplayFor(modelItem => item.Country)
                                         </td>*@

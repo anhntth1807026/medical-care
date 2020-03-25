@@ -16,7 +16,7 @@ namespace medical_care.Models
         public decimal Amount { get; set; }
         public decimal Emi { get; set; }
         public decimal AmountOfYear { get; set; }
-        public string Duration { get; set; }
+        public int Duration { get; set; }
         public DateTime CreatedAt { get; set; }
         public string UpdatedAt { get; set; }
         public string DeletedAt { get; set; }

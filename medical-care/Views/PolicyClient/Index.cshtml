@@ -1,138 +1,273 @@
 ﻿@model IEnumerable<medical_care.Models.Policy>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+@{
+    Layout = null;
+}
+<!doctype html>
+<html lang="en">
 
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Analytics Dashboard</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
 
-<style>
-    table {
-        width: 100%;
-    }
+    <link href="~/Content/css/main.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
 
-    #example_filter {
-        float: right;
-    }
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
 
-    #example_paginate {
-        float: right;
-    }
+    <style>
+        table {
+            width: 100%;
+        }
 
-    label {
-        display: inline-flex;
-        margin-bottom: .5rem;
-        margin-top: .5rem;
-    }
-</style>
+        #example_filter {
+            float: right;
+        }
 
+        #example_paginate {
+            float: right;
+        }
 
+        label {
+            display: inline-flex;
+            margin-bottom: .5rem;
+            margin-top: .5rem;
+        }
+    </style>
+</head>
 
-<div class="row">
-    <div class="col-12">
-        <div class="main-card mb-3 card">
-            <div class="card-body">
-                <h5 class="card-title">Policy Details</h5>
-                <div class="container">
-                    <div class="row">
-                        <table id="example" class="table table-striped table-bordered"
-                               style="width: 100%">
-                            <thead>
-                                <tr>
-                                    @*<th><input type="checkbox" onclick="checkAll(this)"></th>*@
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.PolicyId)
-                                    </th>
-                                    <th>
-                                        @*@Html.DisplayNameFor(model => model.Name)*@
-                                        PolicyName
-                                    </th>
-                                    <th>
-                                        @*@Html.DisplayNameFor(model => model.Company.Name)*@
-                                        CompanyName
-                                    </th>
-                                    <th>
-                                        @*@Html.DisplayNameFor(model => model.Hospital.Name)*@
-                                        HospitalName
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Description)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Amount)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Emi)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.AmountOfYear)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Duration)
-                                    </th>
-                                    @*<th>
-                                            @Html.DisplayNameFor(model => model.Status)
-                                        </th>*@
-                                    <th>Company Details</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            @foreach (var item in Model)
-                            {
-                                <tbody>
-                                    <tr>
-                                        @*<td><input type="checkbox" name=""></td>*@
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.PolicyId)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Name)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Company.Name)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Hospital.Name)
-                                        </td>
-                                        <td>
-                                            @Html.Raw(item.Description)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Amount)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Emi)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.AmountOfYear)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Duration)
-                                        </td>
-                                        @*<td>
-                                                @Html.DisplayFor(modelItem => item.Status)
-                                            </td>*@
-                                        <td>
-                                            @*@Html.ActionLink("Edit", "Edit", new { id = item.PolicyId }) |*@
-                                            @Html.ActionLink("Details", "Details", new { id = item.PolicyId })
-                                            @*@Html.ActionLink("Delete", "Delete", new { id = item.PolicyId })*@
-                                        </td>
-                                        <td>
-                                            @Html.ActionLink("Apply", "Order", new { id = item.PolicyId } )
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            }
+<body>
+    <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+        <!--    Navbar-->
+        <div class="app-header header-shadow">
+            <div class="app-header__logo">
+                <div class="logo-src"></div>
+                <div class="header__pane ml-auto">
+                    <div>
+                        <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
+                                data-class="closed-sidebar">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="app-header__mobile-menu">
+                <div>
+                    <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="app-header__menu">
+                <span>
+                    <button type="button"
+                            class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                        <span class="btn-icon-wrapper">
+                            <i class="fa fa-ellipsis-v fa-w-6"></i>
+                        </span>
+                    </button>
+                </span>
+            </div>
+            <div class="app-header__content">
+                <div class="app-header-left">
+                    <div class="search-wrapper">
+                        <div class="input-holder">
+                            <input type="text" class="search-input" placeholder="Type to search">
+                            <button class="search-icon"><span></span></button>
+                        </div>
+                        <button class="close"></button>
+                    </div>
+                    <ul class="header-menu nav">
+                        <li class="nav-item p-2">
+                            @Html.ActionLink("Home", "Index", "PolicyClient")
+                        </li>
+                        <li class="btn-group nav-item p-2">
+                            Employee Details
+                        </li>
+                        @*<li class="dropdown nav-item p-2">
+                            @Html.ActionLink("Order For Insurance", "PolicyOnEmp", "PolicyClient")
+                        </li>*@
+                    </ul>
+                </div>
+                <div class="app-header-right">
+                    <div class="header-btn-lg pr-0">
+                        <div class="widget-content p-0">
+                            <div class="widget-content-wrapper">
 
-                        </table>
+                                <div class="widget-content-right header-user-info ml-3">
+                                    @*<button type="button" class="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example">
+                                            <i class="fa text-white fa-calendar pr-1 pl-1"></i>
+                                        </button>*@
+                                    @Html.Partial("_LoginPartial")
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!--    Main Content-->
+        <div class="app-main">
+            <!--    Navigation-->
+            @*<div class="app-sidebar sidebar-shadow">
+                <div class="app-header__logo">
+                    <div class="logo-src"></div>
+                    <div class="header__pane ml-auto">
+                        <div>
+                            <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
+                                    data-class="closed-sidebar">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-header__mobile-menu">
+                    <div>
+                        <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="app-header__menu">
+                    <span>
+                        <button type="button"
+                                class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                            <span class="btn-icon-wrapper">
+                                <i class="fa fa-ellipsis-v fa-w-6"></i>
+                            </span>
+                        </button>
+                    </span>
+                </div>
+            </div>*@
+            <div class="app-main__outer">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="main-card mb-3 card">
+                            <div class="card-body">
+                                <h5 class="card-title">Policy Details</h5>
+                                <div class="container">
+                                    <div class="row">
+                                        <table id="example" class="table table-striped table-bordered"
+                                               style="width: 100%">
+                                            <thead>
+                                                <tr>
+                                                    @*<th><input type="checkbox" onclick="checkAll(this)"></th>*@
+                                                    <th>
+                                                        @Html.DisplayNameFor(model => model.PolicyId)
+                                                    </th>
+                                                    <th>
+                                                        PolicyName
+                                                    </th>
+                                                    <th>
+                                                        CompanyName
+                                                    </th>
+                                                    <th>
+                                                        HospitalName
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayNameFor(model => model.Description)
+                                                    </th>
+                                                    <th>
+                                                        Amount(USD)
+                                                    </th>
+                                                    @*<th>
+                                            EMI(USD)
+                                        </th>
+                                        <th>
+                                            Amount Of Year(USD)
+                                        </th>*@
+                                                    <th>
+                                                        Duration(Months)
+                                                    </th>
+                                                    <th>Company Details</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tbody>
+                                                    <tr>
+                                                        @*<td><input type="checkbox" name=""></td>*@
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.PolicyId)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.Name)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.Company.Name)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.Hospital.Name)
+                                                        </td>
+                                                        <td>
+                                                            @Html.Raw(item.Description)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.Amount)
+                                                        </td>
+                                                        @*<td>
+                                                @Html.DisplayFor(modelItem => item.Emi)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.AmountOfYear)
+                                            </td>*@
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.Duration)
+                                                        </td>
+                                                        <td>
+                                                            @Html.ActionLink("Details", "Details", new { id = item.PolicyId })
+                                                        </td>
+                                                        <td>
+                                                            @Html.ActionLink("Apply", "Order", new { id = item.PolicyId })
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            }
+
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+            </div>
+            <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        </div>
     </div>
-</div>
+    <script type="text/javascript" src="~/Content/scripts/main.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/cloudinary/cloudinary_js/master/js/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/cloudinary/cloudinary_js/master/js/jquery.iframe-transport.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/cloudinary/cloudinary_js/master/js/jquery.fileupload.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/cloudinary/cloudinary_js/master/js/jquery.cloudinary.js"></script>
+    @*<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>*@
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+<script src="~/Content/ckeditor/ckeditor.js"></script>
+
 <script>
     $(document).ready(function () {
         $('#example').DataTable(
@@ -152,3 +287,9 @@
         }
     }
 </script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/daterange")
+</body>
+</html>
+

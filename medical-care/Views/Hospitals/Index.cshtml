@@ -52,7 +52,7 @@
                                     <th>
                                         @Html.DisplayNameFor(model => model.Thumbnail)
                                     </th>
-                                    <th>
+                                    @*<th>
                                         @Html.DisplayNameFor(model => model.Address)
                                     </th>
                                     <th>
@@ -60,7 +60,7 @@
                                     </th>
                                     <th>
                                         @Html.DisplayNameFor(model => model.Url)
-                                    </th>
+                                    </th>*@
                                     <th>
                                         @Html.DisplayNameFor(model => model.CreatedAt)
                                     </th>
@@ -93,7 +93,7 @@
                                         <td>
                                             <img src="@Html.DisplayFor(modelItem => item.Thumbnail)" width="80" height="70" alt="@Html.DisplayFor(modelItem => item.Name)" />
                                         </td>
-                                        <td>
+                                        @*<td>
                                             @Html.DisplayFor(modelItem => item.Address)
                                         </td>
                                         <td>
@@ -101,7 +101,7 @@
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Url)
-                                        </td>
+                                        </td>*@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.CreatedAt)
                                         </td>

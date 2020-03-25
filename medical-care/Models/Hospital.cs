@@ -30,4 +30,9 @@ namespace medical_care.Models
     {
         ACTIVE = 1, DEACTIVE = 0
     }
+
+    //public enum HospitalStatus
+    //{
+    //    ACTIVE = 1, DEACTIVE = 0
+    //}
 }

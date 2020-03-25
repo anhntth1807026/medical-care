@@ -21,10 +21,14 @@ namespace medical_care
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));
-
+            bundles.Add(new ScriptBundle("~/bundles/daterange").Include(
+                "~/Scripts/moment.min.js", "~/Scripts/daterangepicker.min.js"));
+            
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/daterangepicker.css"));
+            BundleTable.EnableOptimizations = true;
         }
     }
 }
