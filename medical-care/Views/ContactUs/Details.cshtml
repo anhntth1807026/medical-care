@@ -1,0 +1,70 @@
+﻿@model medical_care.Models.ContactUs
+
+
+<h2>Details</h2>
+
+<div>
+    <h4 class="text-center">ContactUs Detail</h4>
+    <hr />
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>@Html.DisplayNameFor(model => model.Email)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.Email)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>@Html.DisplayNameFor(model => model.Phone)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.Phone)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>@Html.DisplayNameFor(model => model.Message)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.Message)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Username }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -2,7 +2,7 @@
 @*@using PagedList.Mvc;*@
 
 
-<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@*<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />*@
 
 @*@model IEnumerable<Account>*@
 
@@ -16,10 +16,11 @@
 
 @using (Html.BeginForm("Index", "ManageUser", FormMethod.Get))
 {
-    <p>
+    <p class="position-fixed p-2">
         Search : @Html.TextBox("SearchKeyword")
         <input type="submit" value="Search" />
         <a href="/ManageUser/Index"> Back to Full List</a>
+        <h2 class=" text-center">@ViewBag.Title</h2>
     </p>
 
 }
@@ -28,7 +29,7 @@
 
     <div class="col-sm-12">
 
-        <h2>@ViewBag.Title</h2>
+        
 
         <hr />
 
@@ -52,30 +53,15 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Address)
                     </th>
-                    @*<th>
-                        @Html.DisplayNameFor(model => model.Phone)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.City)
-                    </th>*@
-                    @*<th>
-                            @Html.DisplayNameFor(model => model.Country)
-                        </th>*@
+                    
                     <th>
                         @Html.DisplayNameFor(model => model.CreatedAt)
                     </th>
-                    @*<th>
-                            @Html.DisplayNameFor(model => model.UpdatedAt)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.DeletedAt)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.UpdatedBy)
-                        </th>*@
+                    
                     <th>
                         @Html.DisplayNameFor(model => model.EmpStatus)
                     </th>
+                    <th>Action</th>
                     <th>Action</th>
 
                 </tr>
@@ -105,37 +91,21 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Address)
                         </td>
-                        @*<td>
-                            @Html.DisplayFor(modelItem => item.Phone)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.City)
-                        </td>*@
-                        @*<td>
-                                @Html.DisplayFor(modelItem => item.Country)
-                            </td>*@
                         <td>
                             @Html.DisplayFor(modelItem => item.CreatedAt)
                         </td>
-                        @*<td>
-                                @Html.DisplayFor(modelItem => item.UpdatedAt)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.DeletedAt)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.UpdatedBy)
-                            </td>*@
+                        
                         <td>
                             @Html.DisplayFor(modelItem => item.EmpStatus)
                         </td>
                         <td>
                             @*@Html.ActionLink("Sửa thông tin", "Edit", new { Id = item.Id }, null) |*@
 
-                            @Html.ActionLink("Sửa quyền", "EditRole", new { Id = item.Id }, null) 
+                            @Html.ActionLink("Edit Role", "EditRole", new { Id = item.Id }, new { @class = "btn btn-alternate p-1"})
                             @*|
                             @Html.ActionLink("Xóa", "Delete", new { Id = item.Id }, null)*@
                         </td>
+                        <td>@Html.ActionLink("Details", "Details", new { Id = item.Id }, new { @class = " btn btn-info p-1" })</td>
                     </tr>
                 }
             </tbody>
@@ -144,6 +114,8 @@
 </div>
 
 <br />
+@*<script type="text/javascript" src="~/Content/vendor/jquery/jquery-3.2.1.min.js"></script>*@
+<script type="text/javascript" src="~/Content/scripts/jquery-3.3.1.js"></script>
 @*Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount*@
 
 @*@Html.PagedListPager((PagedList.IPagedList)Model, page => Url.Action("Index",

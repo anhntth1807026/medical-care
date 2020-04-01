@@ -10330,7 +10330,7 @@ a, button, .btn {
     width: 34px;
     height: 34px;
     line-height: 34px;
-    position: absolute;
+    position: sticky;
     left: 5px;
     top: 50%;
     margin-top: -17px;

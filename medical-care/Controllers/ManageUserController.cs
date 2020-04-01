@@ -10,7 +10,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace medical_care.Controllers
 {
-    //[Authorize(Roles = "admin")]
+    [Authorize(Roles = "admin")]
     public class ManageUserController : Controller
     {
         // GET: Admin/ManageUser
@@ -61,19 +61,19 @@ namespace medical_care.Controllers
             return View(model);
         }
 
-        //public ActionResult Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Employee employee = dbContext.Employees.Find(id);
-        //    if (employee == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(employee);
-        //}
+        public ActionResult Details(string Id)
+        {
+            if (Id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Employee employee = dbContext.Employees.Find(Id);
+            if (employee == null)
+            {
+                return HttpNotFound();
+            }
+            return View(employee);
+        }
 
         public ActionResult Edit(string Id)
         {

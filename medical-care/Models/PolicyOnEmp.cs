@@ -18,8 +18,8 @@ namespace medical_care.Models
         public DateTime PolicyStart { get; set; }
         public DateTime PolicyEnd { get; set; }
         public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
-        public DateTime DeletedAt { get; set; }
+        public string UpdatedAt { get; set; }
+        public string DeletedAt { get; set; }
         public int CreatedBy { get; set; }
         public int UpdatedBy { get; set; }
         public PolOnEmpStatus Status { get; set; }
@@ -29,6 +29,10 @@ namespace medical_care.Models
         public int PolicyId { get; set; }
         [ForeignKey("PolicyId")]
         public virtual Policy Policy { get; set; }
+        public PolicyOnEmp()
+        {
+            CreatedAt = DateTime.Now;
+        }
     }
 
     public enum PolOnEmpStatus
