@@ -1,12 +1,175 @@
 ﻿@model medical_care.Models.Hospital
 
-@{
-    ViewBag.Title = "Details";
-}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6> @Html.DisplayNameFor(model => model.Name)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.Name)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6> @Html.DisplayNameFor(model => model.Description)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.Description)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>@Html.DisplayNameFor(model => model.Thumbnail)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.Thumbnail)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>@Html.DisplayNameFor(model => model.Address)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.Address)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>@Html.DisplayNameFor(model => model.Phone)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.Phone)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>@Html.DisplayNameFor(model => model.Url)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.Url)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>@Html.DisplayNameFor(model => model.CreatedAt)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.CreatedAt)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>@Html.DisplayNameFor(model => model.UpdatedAt)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.UpdatedAt)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>@Html.DisplayNameFor(model => model.DeletedAt)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.DeletedAt)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>@Html.DisplayNameFor(model => model.Status)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.Status)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<h2>Details</h2>
-
-<div>
+@*<div>
     <h4>Hospital</h4>
     <hr />
     <dl class="dl-horizontal">
@@ -99,7 +262,7 @@
         </dd>
 
     </dl>
-</div>
+</div>*@
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.HospitalId }) |
     @Html.ActionLink("Back to List", "Index")

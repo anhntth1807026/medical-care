@@ -24,7 +24,7 @@ namespace medical_care.Data
         {
             return new MyDbContext();
         }
-        //public System.Data.Entity.DbSet<medical_care.Models.AppRole> IdentityRoles { get; set; }
+        public System.Data.Entity.DbSet<medical_care.Models.AppRole> IdentityRoles { get; set; }
 
         public System.Data.Entity.DbSet<medical_care.Models.Company> Companies { get; set; }
 
@@ -36,11 +36,13 @@ namespace medical_care.Data
 
         public System.Data.Entity.DbSet<medical_care.Models.PolicyRequest> PolicyRequests { get; set; }
         public System.Data.Entity.DbSet<medical_care.Models.PolicyOnEmp> PolicyOnEmps { get; set; }
+
+        public System.Data.Entity.DbSet<medical_care.Models.ContactUs> ContactUs { get; set; }
         // Add a DbSet for each entity type that you want to include in your model. For more information 
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
 
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
-        
+
     }
 
     //public class MyEntity

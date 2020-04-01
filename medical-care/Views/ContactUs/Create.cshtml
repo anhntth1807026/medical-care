@@ -1,0 +1,206 @@
+﻿@using Microsoft.AspNet.Identity
+@model medical_care.Models.ContactUs
+
+@{
+    Layout = null;
+}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Analytics Dashboard</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="~/Content/css/main.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: -webkit-linear-gradient(left, #0072ff, #00c6ff);
+        }
+
+        .contact-form {
+            background: #fff;
+            margin-top: 10%;
+            margin-bottom: 5%;
+            width: 70%;
+        }
+
+            .contact-form .form-control {
+                border-radius: 1rem;
+            }
+
+        .contact-image {
+            text-align: center;
+        }
+
+            .contact-image img {
+                border-radius: 6rem;
+                width: 11%;
+                margin-top: -3%;
+                transform: rotate(29deg);
+            }
+
+        .contact-form form {
+            padding: 14%;
+        }
+
+            .contact-form form .row {
+                margin-bottom: -7%;
+            }
+
+        .contact-form h3 {
+            margin-bottom: 8%;
+            margin-top: -10%;
+            text-align: center;
+            color: #0062cc;
+        }
+
+        .contact-form .btnContact {
+            width: 50%;
+            border: none;
+            border-radius: 1rem;
+            padding: 1.5%;
+            background: #dc3545;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .btnContactSubmit {
+            width: 50%;
+            border-radius: 1rem;
+            padding: 1.5%;
+            color: #fff;
+            background-color: #0062cc;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+        <!--    Navbar-->
+        <div class="app-header header-shadow">
+            <div class="app-header__logo">
+                <img src="https://www.medicare.vn/CMSPages/GetFile.aspx?guid=cb261630-31f1-451b-b004-9cc69f6e7905" alt="medicare" style="width: 110px" />
+            </div>
+
+            <div class="app-header__content">
+                <div class="app-header-left">
+                    <ul class="header-menu nav">
+                        <li class="nav-item p-3 ">
+                            <i class="fa fa-home " aria-hidden="true"></i>
+                            @Html.ActionLink("Home", "Index", "PolicyClient", null, new { style = "text-decoration: none" })
+                        </li>
+                        <li class=" nav-item p-3 text-decoration-none">
+                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                            @Html.ActionLink("Employee Details", "EmployeeDetails", "PolicyClient", new { id = User.Identity.GetUserId() }, new { style = "text-decoration: none" })
+                        </li>
+                        <li class=" nav-item p-3 text-decoration-none">
+                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                            @Html.ActionLink("Contact Us", "Create", "ContactUs", null, new { style = "text-decoration: none" })
+                        </li>
+                        <li class=" nav-item p-3 text-decoration-none">
+                            <i class="fa fa-fa fa-users" aria-hidden="true"></i>
+                            @Html.ActionLink("About Us", "Index", "AboutUs", null, new { style = "text-decoration: none" })
+                        </li>
+                    </ul>
+                </div>
+                <div class="app-header-right">
+                    <div class="header-btn-lg pr-0">
+                        <div class="widget-content p-0">
+                            <div class="widget-content-wrapper">
+                                <div class="widget-content-right header-user-info ml-3">
+                                    @Html.Partial("_LoginPartial")
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @*<div class="app-main"></div>*@
+        <div class="app-main__outer p-3">
+            <div class="row">
+                <div class="col-12">
+                    <div class="container contact-form">
+                        <div class="contact-image">
+                            <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact" />
+                        </div>
+                        <form method="post" action="/ContactUs/Create">
+                            <h3>Drop Us a Message</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label" })
+                                        <div>
+                                            @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label " })
+                                        <div class="">
+                                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label " })
+                                        <div class="">
+                                            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <input type="submit" name="btnSubmit" class="btnContact " value="Send Message" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label " })
+                                    <div class="">
+                                        @*@Html.TextAreaFor(model => model.Message, new { htmlAttributes = new { @class = "form-control "} })
+                                            @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })*@
+                                        <textarea name="Message" class="form-control" placeholder="Your Message *" style="width: 100%; height: 200px;"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                <hr />
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.rawgit.com/cloudinary/cloudinary_js/master/js/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/cloudinary/cloudinary_js/master/js/jquery.iframe-transport.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/cloudinary/cloudinary_js/master/js/jquery.fileupload.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/cloudinary/cloudinary_js/master/js/jquery.cloudinary.js"></script>
+
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/daterange")
+</body>
+</html>
+
+<!------ Include the above in your HEAD tag ---------->
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@

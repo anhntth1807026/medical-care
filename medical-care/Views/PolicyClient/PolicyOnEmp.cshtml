@@ -16,15 +16,8 @@
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
     <meta name="msapplication-tap-highlight" content="no">
-
     <link href="~/Content/css/main.css" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!------ Include the above in your HEAD tag ---------->
-
-    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="~/Content/vendor/jquery/jquery-3.2.1.min.js"></script>
 
     <style>
         table {
@@ -100,8 +93,8 @@
                             Employee Details
                         </li>
                         @*<li class="dropdown nav-item p-2">
-                            @Html.ActionLink("Order For Insurance", "PolicyOnEmp", "PolicyClient")
-                        </li>*@
+                                @Html.ActionLink("Order For Insurance", "PolicyOnEmp", "PolicyClient")
+                            </li>*@
                     </ul>
                 </div>
                 <div class="app-header-right">
@@ -152,8 +145,8 @@
                                                 <thead>
                                                     <tr>
                                                         @*<th>
-                                                            @Html.DisplayNameFor(model => model.Employee.Id)
-                                                        </th>*@
+                                                                @Html.DisplayNameFor(model => model.Employee.Id)
+                                                            </th>*@
                                                         <th>
                                                             @Html.DisplayNameFor(model => model.Policy.PolicyId)
                                                         </th>
@@ -179,8 +172,8 @@
                                                 {
                                                     <tr>
                                                         @*<td>
-                                                            @Html.DisplayFor(modelItem => item.Employee.Id)
-                                                        </td>*@
+                                                                @Html.DisplayFor(modelItem => item.Employee.Id)
+                                                            </td>*@
                                                         <td>
                                                             @Html.DisplayFor(modelItem => item.Policy.PolicyId)
                                                         </td>
@@ -211,40 +204,16 @@
                     </div>
                 </div>
             </div>
-            <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
         </div>
     </div>
-    <script type="text/javascript" src="~/Content/scripts/main.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    @*<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>*@
     <script type="text/javascript" src="https://cdn.rawgit.com/cloudinary/cloudinary_js/master/js/jquery.ui.widget.js"></script>
     <script type="text/javascript" src="https://rawgit.com/cloudinary/cloudinary_js/master/js/jquery.iframe-transport.js"></script>
     <script type="text/javascript" src="https://rawgit.com/cloudinary/cloudinary_js/master/js/jquery.fileupload.js"></script>
     <script type="text/javascript" src="https://rawgit.com/cloudinary/cloudinary_js/master/js/jquery.cloudinary.js"></script>
-    @*<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>*@
-    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+
     <script src="~/Content/ckeditor/ckeditor.js"></script>
-
-    <script>
-    $(document).ready(function () {
-        $('#example').DataTable(
-            {
-                "aLengthMenu": [[5, 10, 25, -1], [5, 10, 25, "All"]],
-                "iDisplayLength": 5
-            }
-        );
-    });
-
-    function checkAll(bx) {
-        var cbs = document.getElementsByTagName('input');
-        for (var i = 0; i < cbs.length; i++) {
-            if (cbs[i].type == 'checkbox') {
-                cbs[i].checked = bx.checked;
-            }
-        }
-    }
-    </script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/daterange")

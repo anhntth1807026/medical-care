@@ -178,7 +178,7 @@ namespace medical_care.Controllers
 
             //bool result = User.IsInRole("admin");
 
-            if (admin != null && Roles.IsUserInRole(username, "admin"))
+            if (admin != null && UserManager.IsInRole(admin.Id, "admin"))
             {
                 //bool result = User.IsInRole("admin");
                 // success
@@ -199,7 +199,7 @@ namespace medical_care.Controllers
         {
             var authenticationManager = System.Web.HttpContext.Current.GetOwinContext().Authentication;
             authenticationManager.SignOut();
-            return View("Login");
+            return Redirect("/PolicyClient");
         }
 
         //GET: Employees

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -75,21 +76,83 @@ namespace medical_care.Controllers
                     RequestDate = DateTime.Now,
                     Amount = policy.Amount,
                     PolicyName = policy.Name,
-                    CompanyName = policy.Company.Name
+                    CompanyName = policy.Company.Name,
+                    Status = PolicyRequestStatus.DEACTIVE
                 };
                 db.PolicyRequests.Add(policyRq);
                 db.SaveChanges();
 
             }
             return RedirectToAction("Index", "PolicyClient");
-            //return View(policyRq);
         }
 
-        // GET: PolicyOnEmps
-        //public ActionResult PolicyOnEmp()
+        // GET: Employees/Details/5
+        public ActionResult EmployeeDetails(string id)
+        {
+            if (id == null)
+            {
+                return Redirect("/Employees/Login");
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var employee = db.Employees.Find(id);
+            var user = new Employee()
+            {
+                UserName = employee.UserName,
+                Firstname = employee.Firstname,
+                Lastname = employee.Lastname,
+                Phone = employee.Phone,
+                City = employee.City,
+                Address = employee.Address,
+            };
+            Session.Add("CurrentUser", user);
+            
+            return View(employee);
+        }
+
+        //GET: Employees/Edit/5
+        public ActionResult Edit(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            
+            var employee = db.Employees.Find(id);
+
+            if (employee == null)
+            {
+                return HttpNotFound();
+            }
+            return View(employee);
+        }
+
+        // POST: Employees/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
+
+        public ActionResult Edit([Bind(Include = "EmployeeId,Firstname,Lastname,Username,Address,Phone,City")] Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(employee).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(employee);
+        }
+
+        //GET: PolicyOnEmps
+        //public ActionResult PolicyOnEmp(string id)
         //{
-        //    var policyOnEmps = db.PolicyOnEmps.Include(p => p.Employee.Id).Include(p => p.Policy);
-        //    return View(policyOnEmps.ToList());
+        //    var policyOnEmps = db.PolicyOnEmps.Where(p => p.EmployeeId == id);
+            
+        //    if (policyOnEmps != null)
+        //    {
+        //    }
+        //    return View(policyOnEmps);
         //}
     }
 }

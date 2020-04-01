@@ -12,6 +12,7 @@ using Microsoft.AspNet.Identity;
 
 namespace medical_care.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class PolicyRequestsController : Controller
     {
         private MyDbContext db = new MyDbContext();
@@ -124,8 +125,6 @@ namespace medical_care.Controllers
                     PolicyStart = startDate,
                     PolicyEnd = endDate,
                     CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now,
-                    DeletedAt = DateTime.Now,
                     Status = PolOnEmpStatus.ACTIVE
                 };
                 Console.WriteLine(policyToEmp);
