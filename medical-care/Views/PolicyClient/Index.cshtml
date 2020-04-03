@@ -173,9 +173,9 @@
                                         Amount(USD)
                                     </th>
                                     <th>
-                                        Duration(Months)
+                                        Duration(Year)
                                     </th>
-                                    <th>Company Details</th>
+                                    @*<th>Company Details</th>*@
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -192,9 +192,11 @@
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Company.Name)
+                                            @Html.ActionLink("Details", "Details", new { id = item.CompanyId }, new { @class = "font-weight-bold p-1" })
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Hospital.Name)
+                                            @Html.ActionLink("Details", "HospitalDetails", new { id = item.HospitalId }, new { @class = "font-weight-bold p-1" })
                                         </td>
                                         <td>
                                             @Html.Raw(item.Description)
@@ -205,9 +207,9 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Duration)
                                         </td>
-                                        <td>
-                                            @Html.ActionLink("Details", "Details", new { id = item.PolicyId }, new { @class = "btn btn-info p-1" })
-                                        </td>
+                                        @*<td>
+                                            
+                                        </td>*@
                                         <td>
                                             @Html.ActionLink("Apply", "Order", new { id = item.PolicyId }, new { @class = "btn btn-primary" })
                                         </td>

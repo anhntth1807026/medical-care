@@ -17,7 +17,6 @@ namespace medical_care.Models
         public DateTime CreatedAt { get; set; }
         public string UpdatedAt { get; set; }
         public string DeletedAt { get; set; }
-        public int UpdatedBy { get; set; }
         public HospitalStatus Status { get; set; }
         public ICollection<Policy> Policies { get; set; }
         public Hospital()

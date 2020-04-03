@@ -38,6 +38,8 @@ namespace medical_care.Data
         public System.Data.Entity.DbSet<medical_care.Models.PolicyOnEmp> PolicyOnEmps { get; set; }
 
         public System.Data.Entity.DbSet<medical_care.Models.ContactUs> ContactUs { get; set; }
+
+        public System.Data.Entity.DbSet<medical_care.Models.ConfirmRequest> ConfirmRequests { get; set; }
         // Add a DbSet for each entity type that you want to include in your model. For more information 
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
 

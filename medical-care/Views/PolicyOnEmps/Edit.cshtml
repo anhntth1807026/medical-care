@@ -10,7 +10,7 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
 
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="main-card mb-3 card">
                     <div class="card-body">
@@ -47,22 +47,6 @@
                                     </div>
                                 </div>
                             </li>
-                            @*<li class="list-group-item">
-            <div class="row">
-                <div class="col-md-3">
-                    <div style="opacity: .8; margin-top: 7px">
-                        <h6>@Html.LabelFor(model => model.Emi, htmlAttributes: new { @class = "control-label" })&nbsp;:</h6>
-                    </div>
-                </div>
-                <div class="col-md-9">
-                    <div class="widget-numbers"
-                         style="font-size: 20px;display: block;">
-                        @Html.EditorFor(model => model.Emi, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Emi, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </div>
-        </li>*@
                             <li class="list-group-item">
                                 <div class="row">
                                     <div class="col-md-3">
@@ -111,14 +95,6 @@
                                     </div>
                                 </div>
                             </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="main-card mb-3 card">
-                    <div class="card-body">
-                        <ul class="list-group list-group-flush">
                             <li class="list-group-item">
                                 <div class="row">
                                     <div class="col-md-3">
@@ -135,82 +111,17 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div style="opacity: .8; margin-top: 7px">
-                                            <h6>@Html.LabelFor(model => model.CreatedBy, htmlAttributes: new { @class = "control-label" })&nbsp;:</h6>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="widget-numbers"
-                                             style="font-size: 20px;display: block;">
-                                            @Html.EditorFor(model => model.CreatedBy, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div style="opacity: .8; margin-top: 7px">
-                                            <h6>@Html.LabelFor(model => model.UpdatedBy, htmlAttributes: new { @class = "control-label" })&nbsp;:</h6>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="widget-numbers"
-                                             style="font-size: 20px;display: block;">
-                                            @Html.EditorFor(model => model.UpdatedBy, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.UpdatedBy, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div style="opacity: .8; margin-top: 7px">
-                                            <h6>@Html.LabelFor(model => model.UpdatedAt, htmlAttributes: new { @class = "control-label " })&nbsp;:</h6>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="widget-numbers"
-                                             style="font-size: 20px;display: block;">
-                                            @Html.EditorFor(model => model.UpdatedAt, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.UpdatedAt, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div style="opacity: .8; margin-top: 7px">
-                                            <h6>@Html.LabelFor(model => model.DeletedAt, htmlAttributes: new { @class = "control-label " })&nbsp;:</h6>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="widget-numbers"
-                                             style="font-size: 20px;display: block;">
-                                            @Html.EditorFor(model => model.DeletedAt, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.DeletedAt, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
-                </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
-
     </div>
 }
 

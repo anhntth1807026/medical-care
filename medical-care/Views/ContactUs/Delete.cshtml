@@ -10,32 +10,63 @@
 <div>
     <h4>ContactUs</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>@Html.DisplayNameFor(model => model.Email)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.Email)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>@Html.DisplayNameFor(model => model.Phone)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.Phone)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>@Html.DisplayNameFor(model => model.Message)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.Message)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Message)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Message)
-        </dd>
-
-    </dl>
+    </div>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()

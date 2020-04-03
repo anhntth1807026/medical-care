@@ -20,11 +20,13 @@ namespace medical_care.Models
         public DateTime CreatedAt { get; set; }
         public string UpdatedAt { get; set; }
         public string DeletedAt { get; set; }
-        public int CreatedBy { get; set; }
-        public int UpdatedBy { get; set; }
         public PolicyStatus Status { get; set; }
         public virtual Company Company { get; set; }
         public virtual Hospital Hospital { get; set; }
+        public Policy()
+        {
+            CreatedAt = DateTime.Now;
+        }
     }
 
     public enum PolicyStatus

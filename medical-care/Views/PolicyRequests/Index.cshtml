@@ -1,32 +1,5 @@
 ﻿@model IEnumerable<medical_care.Models.PolicyRequest>
 
-@*<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>*@
-@*<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>*@
-<!------ Include the above in your HEAD tag ---------->
-
-@*<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>*@
-@*<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>*@
-
-<style>
-    table {
-        width: 100%;
-    }
-
-    #example_filter {
-        float: right;
-    }
-
-    #example_paginate {
-        float: right;
-    }
-
-    label {
-        display: inline-flex;
-        margin-bottom: .5rem;
-        margin-top: .5rem;
-    }
-</style>
 <div class="app-main__inner">
     <div class="app-page-title">
         <div class="page-title-wrapper">
@@ -41,65 +14,9 @@
                     </div>
                 </div>
             </div>
-            @*<div class="page-title-actions">
-                    <button type="button" data-toggle="tooltip" title="Example Tooltip" data-placement="bottom"
-                            class="btn-shadow mr-3 btn btn-dark">
-                        <i class="fa fa-star"></i>
-                    </button>
-                    <div class="d-inline-block dropdown">
-                        <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                class="btn-shadow dropdown-toggle btn btn-info">
-                            <span class="btn-icon-wrapper pr-2 opacity-7">
-                                <i class="fa fa-business-time fa-w-20"></i>
-                            </span>
-                            Buttons
-                        </button>
-                        <div tabindex="-1" role="menu" aria-hidden="true"
-                             class="dropdown-menu dropdown-menu-right">
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a href="javascript:void(0);" class="nav-link">
-                                        <i class="nav-link-icon lnr-inbox"></i>
-                                        <span>
-                                            Inbox
-                                        </span>
-                                        <div class="ml-auto badge badge-pill badge-secondary">86</div>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="javascript:void(0);" class="nav-link">
-                                        <i class="nav-link-icon lnr-book"></i>
-                                        <span>
-                                            Book
-                                        </span>
-                                        <div class="ml-auto badge badge-pill badge-danger">5</div>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="javascript:void(0);" class="nav-link">
-                                        <i class="nav-link-icon lnr-picture"></i>
-                                        <span>
-                                            Picture
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a disabled href="javascript:void(0);" class="nav-link disabled">
-                                        <i class="nav-link-icon lnr-file-empty"></i>
-                                        <span>
-                                            File Disabled
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>*@
         </div>
     </div>
-    @*<ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
-            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
-        </ul>*@
+    
     <div class="row">
         <div class="col-12">
             <div class="main-card mb-3 card">
@@ -114,6 +31,9 @@
                                         <tr>
                                             <th>
                                                 @Html.DisplayNameFor(model => model.Employee.Id)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Employee.UserName)
                                             </th>
                                             <th>
                                                 @Html.DisplayNameFor(model => model.Policy.PolicyId)
@@ -143,6 +63,9 @@
                                                 @Html.DisplayFor(modelItem => item.Employee.Id)
                                             </td>
                                             <td>
+                                                @Html.DisplayFor(modelItem => item.Employee.UserName)
+                                            </td>
+                                            <td>
                                                 @Html.DisplayFor(modelItem => item.Policy.PolicyId)
                                             </td>
                                             <td>
@@ -162,7 +85,7 @@
                                                 </td>*@
                                             <td>
                                                 @*@Html.ActionLink("Edit", "Edit", new { id = item.RequestId }) |*@
-                                                @Html.ActionLink("CheckForStatus", "Details", new { id = item.RequestId })
+                                                @Html.ActionLink("CheckForStatus", "Details", new { id = item.RequestId }, new {@class= "btn btn-primary"})
                                                 @*@Html.ActionLink("Delete", "Delete", new { id = item.RequestId })*@
                                             </td>
                                         </tr>
@@ -176,9 +99,9 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="~/Content/scripts/dataTables.bootstrap4.min.js"></script>
-<script type="text/javascript" src="~/Content/css/dataTables.bootstrap4.min.css"></script>
-<script>
+@*<script type="text/javascript" src="~/Content/vendor/jquery/jquery-3.2.1.min.js"></script>*@
+<script type="text/javascript" src="~/Content/scripts/jquery-3.3.1.js"></script>
+<script type="text/javascript">
     $(document).ready(function () {
         $('#example').DataTable(
             {

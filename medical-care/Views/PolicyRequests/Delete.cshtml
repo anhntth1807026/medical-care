@@ -10,50 +10,139 @@
 <div>
     <h4>PolicyRequest</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Firstname)
-        </dt>
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>@Html.DisplayNameFor(model => model.PolicyId)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.PolicyId)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>@Html.DisplayNameFor(model => model.Employee.UserName)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.Employee.UserName)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>@Html.DisplayNameFor(model => model.Policy.Name)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.Policy.Name)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>Amount(USD)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.Amount)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>Duration(Year)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.Policy.Duration)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>Emi(USD)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.Policy.Emi)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>@Html.DisplayNameFor(model => model.RequestDate)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.RequestDate)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>@Html.DisplayNameFor(model => model.CompanyName)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.CompanyName)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Firstname)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Policy.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Policy.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.RequestDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RequestDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Emi)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Emi)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

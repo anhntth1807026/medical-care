@@ -37,6 +37,21 @@ namespace medical_care.Controllers
             }
             return View(company);
         }
+        
+        // GET: Hospitals/Details/5
+        public ActionResult HospitalDetails(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Hospital hospital = db.Hospitals.Find(id);
+            if (hospital == null)
+            {
+                return HttpNotFound();
+            }
+            return View(hospital);
+        }
 
         [Authorize]
         public ActionResult Order(int? id)
@@ -77,7 +92,7 @@ namespace medical_care.Controllers
                     Amount = policy.Amount,
                     PolicyName = policy.Name,
                     CompanyName = policy.Company.Name,
-                    Status = PolicyRequestStatus.DEACTIVE
+                    Status = PolicyRequestStatus.PENDING
                 };
                 db.PolicyRequests.Add(policyRq);
                 db.SaveChanges();
