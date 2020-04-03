@@ -87,10 +87,49 @@ namespace medical_care.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,PolicyName,PolicyAmount,PolicyDuration,Emi,PolicyStart,PolicyEnd,CreatedAt,UpdatedAt,DeletedAt,CreatedBy,UpdatedBy,Status,EmployeeId,PolicyId")] PolicyOnEmp policyOnEmp)
+        public ActionResult Edit(PolicyOnEmp policyOnEmp, string dateRange)
         {
             if (ModelState.IsValid)
             {
+                //PolicyRequest currentPolicyOnEmp = db.PolicyRequests.Find(policyOnEmp.Id);
+                //if (currentPolicyOnEmp == null)
+                //{
+                //    return new HttpNotFoundResult();
+                //}
+
+                //var startDate = DateTime.Now;
+                //var endDate = DateTime.Now.AddYears(1);
+                //try
+                //{
+                //    var dateSplit = dateRange.Split('-');
+                //    if (dateSplit.Length != 2)
+                //    {
+                //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "bad Flower");
+                //    }
+                //    startDate = DateTime.ParseExact(dateSplit[0], "MM/DD/YYYY", null);
+                //    endDate = DateTime.ParseExact(dateSplit[1], "MM/DD/YYYY", null);
+                //}
+                //catch (Exception e)
+                //{
+                //    Console.WriteLine(e);
+                //}
+                //var policyToEmp = new PolicyOnEmp()
+                //{
+                //    PolicyId = currentPolicyOnEmp.PolicyId,
+                //    EmployeeId = currentPolicyOnEmp.Id,
+                //    PolicyName = currentPolicyOnEmp.PolicyName,
+                //    PolicyAmount = currentPolicyOnEmp.Amount,
+                //    Emi = currentPolicyOnEmp.Emi,
+                //    PolicyStart = startDate,
+                //    PolicyEnd = endDate,
+                //    CreatedAt = DateTime.Now,
+                //    Status = PolOnEmpStatus.ACTIVE
+                //};
+
+                //db.Entry(policyToEmp).State = EntityState.Modified;
+                //db.PolicyOnEmps.Add(policyToEmp);
+                //db.SaveChanges();
+                //return RedirectToAction("Index", "PolicyOnEmps");
                 db.Entry(policyOnEmp).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

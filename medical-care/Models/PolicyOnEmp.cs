@@ -20,8 +20,6 @@ namespace medical_care.Models
         public DateTime CreatedAt { get; set; }
         public string UpdatedAt { get; set; }
         public string DeletedAt { get; set; }
-        public int CreatedBy { get; set; }
-        public int UpdatedBy { get; set; }
         public PolOnEmpStatus Status { get; set; }
         public string EmployeeId { get; set; }
         [ForeignKey("EmployeeId")]
@@ -37,6 +35,6 @@ namespace medical_care.Models
 
     public enum PolOnEmpStatus
     {
-        ACTIVE = 1, DEACTIVE = 0
+        ACTIVE = 1, DEACTIVE = 0, PENDING = 2, CONFIRM = 3
     }
 }

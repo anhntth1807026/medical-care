@@ -25,6 +25,6 @@ namespace medical_care.Models
 
     public enum PolicyRequestStatus
     {
-        DEACTIVE = 0, ACTIVE = 1
+        DEACTIVE = 0, ACTIVE = 1, PENDING = 2, CONFIRM = 3
     }
 }

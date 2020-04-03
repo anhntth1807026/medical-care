@@ -99,39 +99,38 @@ namespace medical_care.Controllers
                     return new HttpNotFoundResult();
                 }
                 
-                var startDate = DateTime.Now;
-                var endDate = DateTime.Now.AddYears(1) ;
-                try
-                {
-                    var dateSplit = dateRange.Split('-');
-                    if (dateSplit.Length != 2)
-                    {
-                        return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "bad Flower");
-                    }
-                    startDate = DateTime.ParseExact(dateSplit[0], "MM/DD/YYYY", null);
-                    endDate = DateTime.ParseExact(dateSplit[1], "MM/DD/YYYY", null);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                }
-                var policyToEmp = new PolicyOnEmp()
+                //var startDate = DateTime.Now;
+                //var endDate = DateTime.Now.AddYears(1) ;
+                //try
+                //{
+                //    var dateSplit = dateRange.Split('-');
+                //    if (dateSplit.Length != 2)
+                //    {
+                //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "bad Flower");
+                //    }
+                //    startDate = DateTime.ParseExact(dateSplit[0], "MM/DD/YYYY", null);
+                //    endDate = DateTime.ParseExact(dateSplit[1], "MM/DD/YYYY", null);
+                //}
+                //catch (Exception e)
+                //{
+                //    Console.WriteLine(e);
+                //}
+                var confirmRequest = new ConfirmRequest()
                 {
                     PolicyId = currentPolicyRequest.PolicyId,
-                    EmployeeId = (HttpContext.User.Identity.GetUserId()),
+                    EmployeeId = currentPolicyRequest.Id,
                     PolicyName = currentPolicyRequest.PolicyName,
-                    PolicyAmount = currentPolicyRequest.Amount,
+                    Amount = currentPolicyRequest.Amount,
                     Emi = currentPolicyRequest.Emi,
-                    PolicyStart = startDate,
-                    PolicyEnd = endDate,
-                    CreatedAt = DateTime.Now,
-                    Status = PolOnEmpStatus.ACTIVE
+                    CompanyName = currentPolicyRequest.CompanyName,
+                    ConfirmRequestDate = DateTime.Now,
+                    Status = ConfirmRequestStatus.CONFIRM
                 };
-                Console.WriteLine(policyToEmp);
+                Console.WriteLine(confirmRequest);
                 //db.Entry(policyToEmp).State = EntityState.Modified;
-                db.PolicyOnEmps.Add(policyToEmp);
+                db.ConfirmRequests.Add(confirmRequest);
                 db.SaveChanges();
-                return RedirectToAction("Index","PolicyOnEmps");
+                return RedirectToAction("Index","ConfirmRequests");
             }
             ViewBag.EmployeeId = new SelectList(db.Employees, "EmployeeId", "Firstname", policyReq.Id);
             ViewBag.PolicyId = new SelectList(db.Policies, "PolicyId", "Name", policyReq.PolicyId);

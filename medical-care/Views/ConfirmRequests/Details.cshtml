@@ -1,0 +1,111 @@
+﻿@model medical_care.Models.ConfirmRequest
+
+<div>
+    <h4 class="text-center">ConfirmRequest Detail</h4>
+    <hr />
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>@Html.DisplayNameFor(model => model.Employee.Id)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.Employee.Id)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>@Html.DisplayNameFor(model => model.Employee.UserName)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.Employee.UserName)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>@Html.DisplayNameFor(model => model.Policy.PolicyId)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.Policy.PolicyId)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6> @Html.DisplayNameFor(model => model.Policy.Name)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.Policy.Name)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>@Html.DisplayNameFor(model => model.ConfirmRequestDate)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.ConfirmRequestDate)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div style="opacity: .8; margin-top: 7px">
+                                        <h6>@Html.DisplayNameFor(model => model.Status)&nbsp;:</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget-numbers"
+                                         style="font-size: 20px;display: block;">
+                                        @Html.DisplayFor(model => model.Status)
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
