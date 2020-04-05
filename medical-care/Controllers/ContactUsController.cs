@@ -11,6 +11,7 @@ using medical_care.Models;
 
 namespace medical_care.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class ContactUsController : Controller
     {
         private MyDbContext db = new MyDbContext();

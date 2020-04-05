@@ -171,285 +171,7 @@ namespace medical_care.Migrations
                     Status = Models.CompanyStatus.ACTIVE,
                 }
             );
-            context.Employees.AddOrUpdate(
-                p => p.Id,
-                new Models.Employee
-                {
-                    Id = "A0011",
-                    Email = "lilwayne@gmail.com",
-                    EmailConfirmed = Convert.ToBoolean("False"),
-                    PasswordHash = PasswordHash.HashPassword("thanh1234"),
-                    SecurityStamp = "v=yAJnj6TiHCk&list=RDxB2qsCnqAXA&index=4",
-                    PhoneNumber = "NULL",
-                    PhoneNumberConfirmed = Convert.ToBoolean("False"),
-                    AccessFailedCount = 0,
-                    Firstname = "Lil",
-                    Lastname = "Wayne",
-                    UserName = "LilWayne001",
-                    Password = "NULL",
-                    Address = "3/1/2 Wall",
-                    Phone = "0921212121",
-                    City = "LosAngeless",
-                    Country = "NULL",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = "NULL",
-                    DeletedAt = "Null",
-                    EmpStatus = Models.EmpStatus.NORMAL
-                },
-                new Models.Employee
-                {
-                    Id = "A0012",
-                    Email = "tuananh@gmail.com",
-                    EmailConfirmed = Convert.ToBoolean("False"),
-                    PasswordHash = PasswordHash.HashPassword("tanh1234"),
-                    SecurityStamp = "v=yAJnj6TiHCk&list=RDxB2qsCnqAXA&index=4",
-                    PhoneNumber = "NULL",
-                    PhoneNumberConfirmed = Convert.ToBoolean("False"),
-                    AccessFailedCount = 0,
-                    Firstname = "Tuan Anh",
-                    Lastname = "Nguyen",
-                    UserName = "TuanAnh001",
-                    Password = "NULL",
-                    Address = "23 Lý Thường Kiệt",
-                    Phone = "0945852000",
-                    City = "Nam Dinh",
-                    Country = "NULL",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = "NULL",
-                    DeletedAt = "NULL",
-                    EmpStatus = Models.EmpStatus.NORMAL
-                },
-                new Models.Employee
-                {
-                    Id = "A0013",
-                    Email = "thanhhoa@gmail.com",
-                    EmailConfirmed = Convert.ToBoolean("False"),
-                    PasswordHash = PasswordHash.HashPassword("hoa1234"),
-                    SecurityStamp = "v=yAJnj6TiHCk&list=RDxB2qsCnqAXA&index=4",
-                    PhoneNumber = "NULL",
-                    PhoneNumberConfirmed = Convert.ToBoolean("False"),
-                    AccessFailedCount = 0,
-                    Firstname = "Thanh Hoa",
-                    Lastname = "Pham",
-                    UserName = "ThanhHoa001",
-                    Password = "NULL",
-                    Address = "58 Trần Bình",
-                    Phone = "0394075235",
-                    City = "Thai Binh",
-                    Country = "NULL",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = "NULL",
-                    DeletedAt = "NULL",
-                    EmpStatus = Models.EmpStatus.NORMAL
-                },
-                new Models.Employee
-                {
-                    Id = "A0014",
-                    Email = "tatthanh@gmail.com",
-                    EmailConfirmed = Convert.ToBoolean("False"),
-                    PasswordHash = PasswordHash.HashPassword("thanh1234"),
-                    SecurityStamp = "v=yAJnj6TiHCk&list=RDxB2qsCnqAXA&index=4",
-                    PhoneNumber = "NULL",
-                    PhoneNumberConfirmed = Convert.ToBoolean("False"),
-                    AccessFailedCount = 0,
-                    Firstname = "Tat Thanh",
-                    Lastname = "Hoang",
-                    UserName = "TatThanh001",
-                    Password = "thanh1234",
-                    Address = "35 Trần Hưng Đạo",
-                    Phone = "0329581759",
-                    City = "Thuong Tin",
-                    Country = "NULL",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = "NULL",
-                    DeletedAt = "NULL",
-                    EmpStatus = Models.EmpStatus.NORMAL
-                },
-                new Models.Employee
-                {
-                    Id = "A0015",
-                    Email = "xuanbach@gmail.com",
-                    EmailConfirmed = Convert.ToBoolean("False"),
-                    PasswordHash = PasswordHash.HashPassword("bach1234"),
-                    SecurityStamp = "v=yAJnj6TiHCk&list=RDxB2qsCnqAXA&index=4",
-                    PhoneNumber = "NULL",
-                    PhoneNumberConfirmed = Convert.ToBoolean("False"),
-                    AccessFailedCount = 0,
-                    Firstname = "Xuan Bach",
-                    Lastname = "Luong",
-                    UserName = "XuanBach001",
-                    Password = "NULL",
-                    Address = "11 Hoàng Cầu",
-                    Phone = "0869207696",
-                    City = "Thuong Tin",
-                    Country = "NULL",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = "NULL",
-                    DeletedAt = "NULL",
-                    EmpStatus = Models.EmpStatus.NORMAL
-                },
-                new Models.Employee
-                {
-                    Id = "A0016",
-                    Email = "tieubinh@gmail.com",
-                    EmailConfirmed = Convert.ToBoolean("False"),
-                    PasswordHash = PasswordHash.HashPassword("binh1234"),
-                    SecurityStamp = "v=yAJnj6TiHCk&list=RDxB2qsCnqAXA&index=4",
-                    PhoneNumber = "NULL",
-                    PhoneNumberConfirmed = Convert.ToBoolean("False"),
-                    AccessFailedCount = 0,
-                    Firstname = "Tieu Binh",
-                    Lastname = "Dang",
-                    UserName = "TieuBinh001",
-                    Password = "NULL",
-                    Address = "98 Song Hao",
-                    Phone = "0962598165",
-                    City = "Ha Dong",
-                    Country = "NULL",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = "NULL",
-                    DeletedAt = "NULL",
-                    EmpStatus = Models.EmpStatus.NORMAL
-                },
-                new Models.Employee
-                {
-                    Id = "A0017",
-                    Email = "quangkhai@gmail.com",
-                    EmailConfirmed = Convert.ToBoolean("False"),
-                    PasswordHash = PasswordHash.HashPassword("khai1234"),
-                    SecurityStamp = "v=yAJnj6TiHCk&list=RDxB2qsCnqAXA&index=4",
-                    PhoneNumber = "NULL",
-                    PhoneNumberConfirmed = Convert.ToBoolean("False"),
-                    AccessFailedCount = 0,
-                    Firstname = "Quang Khai",
-                    Lastname = "Ho",
-                    UserName = "QuangKhai001",
-                    Password = "NULL",
-                    Address = "654 Ba Trieu",
-                    Phone = "0917388156",
-                    City = "Hai Duong",
-                    Country = "NULL",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = "NULL",
-                    DeletedAt = "NULL",
-                    EmpStatus = Models.EmpStatus.NORMAL
-                },
-                new Models.Employee
-                {
-                    Id = "A0018",
-                    Email = "thanhthao@gmail.com",
-                    EmailConfirmed = Convert.ToBoolean("False"),
-                    PasswordHash = PasswordHash.HashPassword("thao1234"),
-                    SecurityStamp = "v=yAJnj6TiHCk&list=RDxB2qsCnqAXA&index=4",
-                    PhoneNumber = "NULL",
-                    PhoneNumberConfirmed = Convert.ToBoolean("False"),
-                    AccessFailedCount = 0,
-                    Firstname = "Thanh Thao",
-                    Lastname = "Phung",
-                    UserName = "ThanhThao001",
-                    Password = "NULL",
-                    Address = "487 Hang Bai",
-                    Phone = "0721894536",
-                    City = "Phu Tho",
-                    Country = "NULL",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = "NULL",
-                    DeletedAt = "NULL",
-                    EmpStatus = Models.EmpStatus.NORMAL
-                },
-                new Models.Employee
-                {
-                    Id = "A0019",
-                    Email = "quocanh@gmail.com",
-                    EmailConfirmed = Convert.ToBoolean("False"),
-                    PasswordHash = PasswordHash.HashPassword("anh1234"),
-                    SecurityStamp = "v=yAJnj6TiHCk&list=RDxB2qsCnqAXA&index=4",
-                    PhoneNumber = "NULL",
-                    PhoneNumberConfirmed = Convert.ToBoolean("False"),
-                    AccessFailedCount = 0,
-                    Firstname = "Quoc Anh",
-                    Lastname = "Do",
-                    UserName = "QuocAnh001",
-                    Password = "NULL",
-                    Address = "72b Quoc Tu Giam",
-                    Phone = "0775867749",
-                    City = "Lao Cai",
-                    Country = "NULL",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = "NULL",
-                    DeletedAt = "NULL",
-                    EmpStatus = Models.EmpStatus.NORMAL,
-                },
-                new Models.Employee
-                {
-                    Id = "A0020",
-                    Email = "linhdat@gmail.com",
-                    EmailConfirmed = Convert.ToBoolean("False"),
-                    PasswordHash = PasswordHash.HashPassword("dat1234"),
-                    SecurityStamp = "v=yAJnj6TiHCk&list=RDxB2qsCnqAXA&index=4",
-                    PhoneNumber = "NULL",
-                    PhoneNumberConfirmed = Convert.ToBoolean("False"),
-                    AccessFailedCount = 0,
-                    Firstname = "Linh Dat",
-                    Lastname = "Nguyen",
-                    UserName = "LinhDat001",
-                    Password = "NULL",
-                    Address = "77 Do Quan",
-                    Phone = "0968753214",
-                    City = "Nam Dinh",
-                    Country = "NULL",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = "NULL",
-                    DeletedAt = "NULL",
-                    EmpStatus = Models.EmpStatus.NORMAL
-                },
-                new Models.Employee
-                {
-                    Id = "A0021",
-                    Email = "tuanminh@gmail.com",
-                    EmailConfirmed = Convert.ToBoolean("False"),
-                    PasswordHash = PasswordHash.HashPassword("minh1234"),
-                    SecurityStamp = "v=yAJnj6TiHCk&list=RDxB2qsCnqAXA&index=4",
-                    PhoneNumber = "NULL",
-                    PhoneNumberConfirmed = Convert.ToBoolean("False"),
-                    AccessFailedCount = 0,
-                    Firstname = "Tuan Minh",
-                    Lastname = "Le",
-                    UserName = "TuanMinh001",
-                    Password = "NULL",
-                    Address = "72 Nang Tinh",
-                    Phone = "0985641237",
-                    City = "Thai Nguyen",
-                    Country = "NULL",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = "NULL",
-                    DeletedAt = "NULL",
-                    EmpStatus = Models.EmpStatus.NORMAL
-                },
-                new Models.Employee
-                {
-                    Id = "A0022",
-                    Email = "quochung@gmail.com",
-                    EmailConfirmed = Convert.ToBoolean("False"),
-                    PasswordHash = PasswordHash.HashPassword("hung1234"),
-                    SecurityStamp = "v=yAJnj6TiHCk&list=RDxB2qsCnqAXA&index=4",
-                    PhoneNumber = "NULL",
-                    PhoneNumberConfirmed = Convert.ToBoolean("False"),
-                    AccessFailedCount = 0,
-                    Firstname = "Quoc Hung",
-                    Lastname = "Hoang",
-                    UserName = "QuocHung001",
-                    Password = "NULL",
-                    Address = "1098 Hoang Minh Giam",
-                    Phone = "0394587621",
-                    City = "Ninh Binh",
-                    Country = "NULL",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = "NULL",
-                    DeletedAt = "NULL",
-                    EmpStatus = Models.EmpStatus.NORMAL
-                }
-            );
+            
             context.Hospitals.AddOrUpdate(
                 p => p.HospitalId,
                 new Models.Hospital
@@ -778,6 +500,293 @@ namespace medical_care.Migrations
                     PolicyId = 2,
                 }
             );
+
+
+
+            context.Employees.AddOrUpdate(
+                p => p.Id,
+                new Models.Employee
+                {
+                    Id = "A0011",
+                    Email = "lilwayne@gmail.com",
+                    EmailConfirmed = Convert.ToBoolean("False"),
+                    PasswordHash = PasswordHash.HashPassword("thanh1234"),
+                    SecurityStamp = "v=yAJnj6TiHCk&list=RDxB2qsCnqAXA&index=4",
+                    PhoneNumber = "NULL",
+                    PhoneNumberConfirmed = Convert.ToBoolean("False"),
+                    AccessFailedCount = 0,
+                    Firstname = "Lil",
+                    Lastname = "Wayne",
+                    UserName = "LilWayne001",
+                    Password = "NULL",
+                    Address = "3/1/2 Wall",
+                    Phone = "0921212121",
+                    City = "LosAngeless",
+                    Country = "NULL",
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = "NULL",
+                    DeletedAt = "Null",
+                    EmpStatus = Models.EmpStatus.NORMAL
+                },
+                new Models.Employee
+                {
+                    Id = "A0012",
+                    Email = "tuananh@gmail.com",
+                    EmailConfirmed = Convert.ToBoolean("False"),
+                    PasswordHash = PasswordHash.HashPassword("tanh1234"),
+                    SecurityStamp = "v=yAJnj6TiHCk&list=RDxB2qsCnqAXA&index=4",
+                    PhoneNumber = "NULL",
+                    PhoneNumberConfirmed = Convert.ToBoolean("False"),
+                    AccessFailedCount = 0,
+                    Firstname = "Tuan Anh",
+                    Lastname = "Nguyen",
+                    UserName = "TuanAnh001",
+                    Password = "NULL",
+                    Address = "23 Lý Thường Kiệt",
+                    Phone = "0945852000",
+                    City = "Nam Dinh",
+                    Country = "NULL",
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = "NULL",
+                    DeletedAt = "NULL",
+                    EmpStatus = Models.EmpStatus.NORMAL
+                },
+                new Models.Employee
+                {
+                    Id = "A0013",
+                    Email = "thanhhoa@gmail.com",
+                    EmailConfirmed = Convert.ToBoolean("False"),
+                    PasswordHash = PasswordHash.HashPassword("hoa1234"),
+                    SecurityStamp = "v=yAJnj6TiHCk&list=RDxB2qsCnqAXA&index=4",
+                    PhoneNumber = "NULL",
+                    PhoneNumberConfirmed = Convert.ToBoolean("False"),
+                    AccessFailedCount = 0,
+                    Firstname = "Thanh Hoa",
+                    Lastname = "Pham",
+                    UserName = "ThanhHoa001",
+                    Password = "NULL",
+                    Address = "58 Trần Bình",
+                    Phone = "0394075235",
+                    City = "Thai Binh",
+                    Country = "NULL",
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = "NULL",
+                    DeletedAt = "NULL",
+                    EmpStatus = Models.EmpStatus.NORMAL
+                },
+                new Models.Employee
+                {
+                    Id = "A0014",
+                    Email = "tatthanh@gmail.com",
+                    EmailConfirmed = Convert.ToBoolean("False"),
+                    PasswordHash = PasswordHash.HashPassword("thanh1234"),
+                    SecurityStamp = "v=yAJnj6TiHCk&list=RDxB2qsCnqAXA&index=4",
+                    PhoneNumber = "NULL",
+                    PhoneNumberConfirmed = Convert.ToBoolean("False"),
+                    AccessFailedCount = 0,
+                    Firstname = "Tat Thanh",
+                    Lastname = "Hoang",
+                    UserName = "TatThanh001",
+                    Password = "thanh1234",
+                    Address = "35 Trần Hưng Đạo",
+                    Phone = "0329581759",
+                    City = "Thuong Tin",
+                    Country = "NULL",
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = "NULL",
+                    DeletedAt = "NULL",
+                    EmpStatus = Models.EmpStatus.NORMAL
+                },
+                new Models.Employee
+                {
+                    Id = "A0015",
+                    Email = "xuanbach@gmail.com",
+                    EmailConfirmed = Convert.ToBoolean("False"),
+                    PasswordHash = PasswordHash.HashPassword("bach1234"),
+                    SecurityStamp = "v=yAJnj6TiHCk&list=RDxB2qsCnqAXA&index=4",
+                    PhoneNumber = "NULL",
+                    PhoneNumberConfirmed = Convert.ToBoolean("False"),
+                    AccessFailedCount = 0,
+                    Firstname = "Xuan Bach",
+                    Lastname = "Luong",
+                    UserName = "XuanBach001",
+                    Password = "NULL",
+                    Address = "11 Hoàng Cầu",
+                    Phone = "0869207696",
+                    City = "Thuong Tin",
+                    Country = "NULL",
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = "NULL",
+                    DeletedAt = "NULL",
+                    EmpStatus = Models.EmpStatus.NORMAL
+                },
+                new Models.Employee
+                {
+                    Id = "A0016",
+                    Email = "tieubinh@gmail.com",
+                    EmailConfirmed = Convert.ToBoolean("False"),
+                    PasswordHash = PasswordHash.HashPassword("binh1234"),
+                    SecurityStamp = "v=yAJnj6TiHCk&list=RDxB2qsCnqAXA&index=4",
+                    PhoneNumber = "NULL",
+                    PhoneNumberConfirmed = Convert.ToBoolean("False"),
+                    AccessFailedCount = 0,
+                    Firstname = "Tieu Binh",
+                    Lastname = "Dang",
+                    UserName = "TieuBinh001",
+                    Password = "NULL",
+                    Address = "98 Song Hao",
+                    Phone = "0962598165",
+                    City = "Ha Dong",
+                    Country = "NULL",
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = "NULL",
+                    DeletedAt = "NULL",
+                    EmpStatus = Models.EmpStatus.NORMAL
+                },
+                new Models.Employee
+                {
+                    Id = "A0017",
+                    Email = "quangkhai@gmail.com",
+                    EmailConfirmed = Convert.ToBoolean("False"),
+                    PasswordHash = PasswordHash.HashPassword("khai1234"),
+                    SecurityStamp = "v=yAJnj6TiHCk&list=RDxB2qsCnqAXA&index=4",
+                    PhoneNumber = "NULL",
+                    PhoneNumberConfirmed = Convert.ToBoolean("False"),
+                    AccessFailedCount = 0,
+                    Firstname = "Quang Khai",
+                    Lastname = "Ho",
+                    UserName = "QuangKhai001",
+                    Password = "NULL",
+                    Address = "654 Ba Trieu",
+                    Phone = "0917388156",
+                    City = "Hai Duong",
+                    Country = "NULL",
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = "NULL",
+                    DeletedAt = "NULL",
+                    EmpStatus = Models.EmpStatus.NORMAL
+                },
+                new Models.Employee
+                {
+                    Id = "A0018",
+                    Email = "thanhthao@gmail.com",
+                    EmailConfirmed = Convert.ToBoolean("False"),
+                    PasswordHash = PasswordHash.HashPassword("thao1234"),
+                    SecurityStamp = "v=yAJnj6TiHCk&list=RDxB2qsCnqAXA&index=4",
+                    PhoneNumber = "NULL",
+                    PhoneNumberConfirmed = Convert.ToBoolean("False"),
+                    AccessFailedCount = 0,
+                    Firstname = "Thanh Thao",
+                    Lastname = "Phung",
+                    UserName = "ThanhThao001",
+                    Password = "NULL",
+                    Address = "487 Hang Bai",
+                    Phone = "0721894536",
+                    City = "Phu Tho",
+                    Country = "NULL",
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = "NULL",
+                    DeletedAt = "NULL",
+                    EmpStatus = Models.EmpStatus.NORMAL
+                },
+                new Models.Employee
+                {
+                    Id = "A0019",
+                    Email = "quocanh@gmail.com",
+                    EmailConfirmed = Convert.ToBoolean("False"),
+                    PasswordHash = PasswordHash.HashPassword("anh1234"),
+                    SecurityStamp = "v=yAJnj6TiHCk&list=RDxB2qsCnqAXA&index=4",
+                    PhoneNumber = "NULL",
+                    PhoneNumberConfirmed = Convert.ToBoolean("False"),
+                    AccessFailedCount = 0,
+                    Firstname = "Quoc Anh",
+                    Lastname = "Do",
+                    UserName = "QuocAnh001",
+                    Password = "NULL",
+                    Address = "72b Quoc Tu Giam",
+                    Phone = "0775867749",
+                    City = "Lao Cai",
+                    Country = "NULL",
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = "NULL",
+                    DeletedAt = "NULL",
+                    EmpStatus = Models.EmpStatus.NORMAL,
+                },
+                new Models.Employee
+                {
+                    Id = "A0020",
+                    Email = "linhdat@gmail.com",
+                    EmailConfirmed = Convert.ToBoolean("False"),
+                    PasswordHash = PasswordHash.HashPassword("dat1234"),
+                    SecurityStamp = "v=yAJnj6TiHCk&list=RDxB2qsCnqAXA&index=4",
+                    PhoneNumber = "NULL",
+                    PhoneNumberConfirmed = Convert.ToBoolean("False"),
+                    AccessFailedCount = 0,
+                    Firstname = "Linh Dat",
+                    Lastname = "Nguyen",
+                    UserName = "LinhDat001",
+                    Password = "NULL",
+                    Address = "77 Do Quan",
+                    Phone = "0968753214",
+                    City = "Nam Dinh",
+                    Country = "NULL",
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = "NULL",
+                    DeletedAt = "NULL",
+                    EmpStatus = Models.EmpStatus.NORMAL
+                },
+                new Models.Employee
+                {
+                    Id = "A0021",
+                    Email = "tuanminh@gmail.com",
+                    EmailConfirmed = Convert.ToBoolean("False"),
+                    PasswordHash = PasswordHash.HashPassword("minh1234"),
+                    SecurityStamp = "v=yAJnj6TiHCk&list=RDxB2qsCnqAXA&index=4",
+                    PhoneNumber = "NULL",
+                    PhoneNumberConfirmed = Convert.ToBoolean("False"),
+                    AccessFailedCount = 0,
+                    Firstname = "Tuan Minh",
+                    Lastname = "Le",
+                    UserName = "TuanMinh001",
+                    Password = "NULL",
+                    Address = "72 Nang Tinh",
+                    Phone = "0985641237",
+                    City = "Thai Nguyen",
+                    Country = "NULL",
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = "NULL",
+                    DeletedAt = "NULL",
+                    EmpStatus = Models.EmpStatus.NORMAL
+                },
+                new Models.Employee
+                {
+                    Id = "A0022",
+                    Email = "quochung@gmail.com",
+                    EmailConfirmed = Convert.ToBoolean("False"),
+                    PasswordHash = PasswordHash.HashPassword("hung1234"),
+                    SecurityStamp = "v=yAJnj6TiHCk&list=RDxB2qsCnqAXA&index=4",
+                    PhoneNumber = "NULL",
+                    PhoneNumberConfirmed = Convert.ToBoolean("False"),
+                    AccessFailedCount = 0,
+                    Firstname = "Quoc Hung",
+                    Lastname = "Hoang",
+                    UserName = "QuocHung001",
+                    Password = "NULL",
+                    Address = "1098 Hoang Minh Giam",
+                    Phone = "0394587621",
+                    City = "Ninh Binh",
+                    Country = "NULL",
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = "NULL",
+                    DeletedAt = "NULL",
+                    EmpStatus = Models.EmpStatus.NORMAL
+                }
+            );
+
+
+            var userManager = new UserManager<Employee>(new UserStore<Employee>(context));
+
+
             context.Roles.AddOrUpdate(
                 p => p.Id,
                 new IdentityRole()
@@ -791,69 +800,19 @@ namespace medical_care.Migrations
                     Name = "employee",
                 }
             );
-            //context.Users.AddOrUpdate(
-            //    p => p.Id,
-            //      new IdentityUserRole
-            //      {
-            //          UserId = "A0011",
-            //          RoleId = "User"
-            //      },
-            //      new IdentityUserRole
-            //      {
-            //          UserId = "A0012",
-            //          RoleId = "Ad"
-            //      },
-            //      new IdentityUserRole
-            //      {
-            //          UserId = "A0013",
-            //          RoleId = "Ad"
-            //      },
-            //      new IdentityUserRole
-            //      {
-            //          UserId = "A0014",
-            //          RoleId = "User"
-            //      },
-            //      new IdentityUserRole
-            //      {
-            //          UserId = "A0015",
-            //          RoleId = "User"
-            //      },
-            //      new IdentityUserRole
-            //      {
-            //          UserId = "A0016",
-            //          RoleId = "User"
-            //      },
-            //      new IdentityUserRole
-            //      {
-            //          UserId = "A0017",
-            //          RoleId = "User"
-            //      },
-            //      new IdentityUserRole
-            //      {
-            //          UserId = "A0018",
-            //          RoleId = "User"
-            //      },
-            //      new IdentityUserRole
-            //      {
-            //          UserId = "A0019",
-            //          RoleId = "User"
-            //      },
-            //      new IdentityUserRole
-            //      {
-            //          UserId = "A0020",
-            //          RoleId = "User"
-            //      },
-            //      new IdentityUserRole
-            //      {
-            //          UserId = "A0021",
-            //          RoleId = "User"
-            //      },
-            //      new IdentityUserRole
-            //      {
-            //          UserId = "A0022",
-            //          RoleId = "User"
-            //      }
-            //);
+
+            userManager.AddToRole("A0011", "employee");
+            userManager.AddToRole("A0012", "admin");
+            userManager.AddToRole("A0013", "admin");
+            userManager.AddToRole("A0014", "admin");
+            userManager.AddToRole("A0015", "employee");
+            userManager.AddToRole("A0016", "employee");
+            userManager.AddToRole("A0017", "employee");
+            userManager.AddToRole("A0018", "employee");
+            userManager.AddToRole("A0019", "employee");
+            userManager.AddToRole("A0020", "employee");
+            userManager.AddToRole("A0021", "employee");
+            userManager.AddToRole("A0022", "employee");
         }
 
     }
