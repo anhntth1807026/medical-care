@@ -321,7 +321,7 @@ namespace medical_care.Migrations
                 {
                     PolicyId = 1,
                     Name = "Bảo hiểm sức khỏe",
-                    Description = "Là loại hình bảo hiểm cho trường hợp người được bảo hiểm bị thương tật, ốm đau",
+                    Description = "ĐIỀU TRỊ NỘI TRÚ (DO ỐM BỆNH, TAI NẠN) Quyền lợi Nội trú (bắt buộc), gồm: Chi phí nằm viện. Chi phí khám và điều trị (30 ngày trước/ 30 ngày sau xuất viện). Chi phí vận chuyển cấp cứu đường bộ, phục hồi chức năng. Chi phí mai táng, trợ cấp bệnh viện công. Còn có các gói bổ sung có thể đăng ký thêm: Quyền lợi ngoại trú, Quyền lợi thai sản, Quyền lợi nha khoa, Tai nạn cá nhân, Sinh mạng cá nhân. Bảo hiểm có hiệu lực sau thời gian chờ dưới đây kể từ ngày hợp đồng bảo hiểm bắt đầu: TỬ VONG do Bệnh đặc biệt/ Bệnh có sẵn/ Biến chứng thai sản: 1 năm ĐIỀU TRỊ Bệnh đặc biệt/ Bệnh có sẵn/ Bệnh liệt kê tại điểm loại trừ số 36/ Tái tạo dây chằng: 1 năm, ĐIỀU TRỊ Viêm phế quản, tiểu phế quản, viêm phổi các loại với trẻ em dưới 6 tuổi: 6 tháng, TỬ VONG do bệnh thông thuờng: 90 ngày, ĐIỀU TRỊ bệnh thông thuờng: 30 ngày, THAI SẢN: 90 ngày, SINH CON: 635 ngày.",
                     Amount = 6000,
                     Emi = 500,
                     AmountOfYear = 6000,
@@ -337,7 +337,7 @@ namespace medical_care.Migrations
                 {
                     PolicyId = 2,
                     Name = "Bảo hiểm nhân thọ",
-                    Description = "là loại nghiệp vụ bảo hiểm cho người được bảo hiểm sống hoặc chết",
+                    Description = "Quyền lợi tiền mặt: 30% Số tiền bảo hiểm (STBH) vào ngày kỷ niệm năm hợp đồng ngay sau sinh nhật lần thứ 65 của Người được bảo hiểm. Quyền lợi khi kết thúc thời hạn hợp đồng: 200% STBH + Bảo tức tích lũy và Lãi chia cuối hợp đồng (nếu có) - các quyền lợi đã chi trả trước đó (nếu có). Quyền lợi thương tật toàn bộ và vĩnh viễn: 10% STBH/năm x 10 năm. Quyền lợi tử vong: Quyền lợi tử vong do tai nạn: Lên đến 300% số tiền bảo hiểm (STBH) (a) 100% STBH (b) 200% Số tiền bảo hiểm nếu Người được bảo hiểm tử vong do Tai nạn khi đang sử dụng các phương tiện vận chuyển công cộng gồm xe buýt, xe lửa và xe điện ngầm, với tư cách là hành khách có mua vé (c) 300% STBH nếu tử vong do Tai nạn khi đang sử dụng phương tiện hàng không thương mại khi đang là hành khách có mua vé. Quyền lợi Tử vong không do Tai nạn: 100% tổng Phí bảo hiểm đã đóng.",
                     Amount = 16000,
                     Emi = 1300,
                     AmountOfYear = 16000,
@@ -353,7 +353,7 @@ namespace medical_care.Migrations
                 {
                     PolicyId = 3,
                     Name = "Bảo hiểm phi nhân thọ",
-                    Description = "là loại nghiệp vụ bảo hiểm tài sản, trách nhiệm dân sự và các nghiệp vụ bảo hiểm khác",
+                    Description = "Quyền lợi tiền mặt: 30% Số tiền bảo hiểm (STBH) vào ngày kỷ niệm năm hợp đồng ngay sau sinh nhật lần thứ 65 của Người được bảo hiểm. Quyền lợi khi kết thúc thời hạn hợp đồng: 200% STBH + Bảo tức tích lũy và Lãi chia cuối hợp đồng (nếu có) - các quyền lợi đã chi trả trước đó (nếu có). Quyền lợi thương tật toàn bộ và vĩnh viễn: 10% STBH/năm x 10 năm. Quyền lợi tử vong: Quyền lợi tử vong do tai nạn: Lên đến 300% số tiền bảo hiểm (STBH) (a) 100% STBH (b) 200% Số tiền bảo hiểm nếu Người được bảo hiểm tử vong do Tai nạn khi đang sử dụng các phương tiện vận chuyển công cộng gồm xe buýt, xe lửa và xe điện ngầm, với tư cách là hành khách có mua vé (c) 300% STBH nếu tử vong do Tai nạn khi đang sử dụng phương tiện hàng không thương mại khi đang là hành khách có mua vé. Quyền lợi Tử vong không do Tai nạn: 100% tổng Phí bảo hiểm đã đóng.",
                     Amount = 120000,
                     Emi = 1000,
                     AmountOfYear = 12000,
@@ -369,7 +369,7 @@ namespace medical_care.Migrations
                 {
                     PolicyId = 4,
                     Name = "Bảo hiểm y tế",
-                    Description = "là sự bảo đảm thay thế hoặc bù đắp một phần thu nhập của người lao động",
+                    Description = "Mức hưởng Bảo hiểm Y tế đúng tuyến:  100% chi phí khám, chữa bệnh nếu là bộ đội, công an; người có công với cách mạng, cựu chiến binh; trẻ em dưới 06 tuổi; người thuộc hộ gia đình nghèo; người có thời gian tham gia BHYT 5 năm liên tục và có số tiền cùng chi trả chi phí khám, chữa bệnh trong năm lớn hơn 6 tháng lương cơ sở… 95% chi phí khám, chữa bệnh nếu là người hưởng lương hưu, trợ cấp mất sức lao động hàng tháng; người thuộc hộ gia đình cận nghèo… 80% chi phí khám, chữa bệnh nếu là đối tượng khác. Mức hưởng Bảo hiểm Y tế trái tuyến: 40% chi phí điều trị nội trú tại bệnh viện tuyến trung ương 60% chi phí điều trị nội trú đến ngày 31/12/2020 tại bệnh viện tuyến tỉnh 100% chi phí khám bệnh, chữa bệnh tại bệnh viện tuyến huyện.",
                     Amount = 2400,
                     Emi = 200,
                     AmountOfYear = 2400,

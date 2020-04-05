@@ -278,3 +278,4 @@ C:\Users\pc\Desktop\cloneprjs3\medical-care\medical-care\obj\Debug\medical-care.
 C:\Users\pc\Desktop\cloneprjs3\medical-care\medical-care\obj\Debug\medical-care.dll
 C:\Users\pc\Desktop\cloneprjs3\medical-care\medical-care\obj\Debug\medical-care.pdb
 C:\Users\pc\Desktop\cloneprjs3\medical-care\medical-care\obj\Debug\medical_care.Migrations.updateConfiguration.resources
+C:\Users\pc\Desktop\cloneprjs3\medical-care\medical-care\obj\Debug\medical_care.Migrations.UpdateDBPolicy.resources

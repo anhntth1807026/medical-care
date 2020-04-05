@@ -187,6 +187,10 @@
     <Compile Include="Migrations\202004030826357_updateConfiguration.Designer.cs">
       <DependentUpon>202004030826357_updateConfiguration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004051514043_UpdateDBPolicy.cs" />
+    <Compile Include="Migrations\202004051514043_UpdateDBPolicy.Designer.cs">
+      <DependentUpon>202004051514043_UpdateDBPolicy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppRole.cs" />
     <Compile Include="Models\AppUserManager.cs" />
@@ -887,6 +891,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004030826357_updateConfiguration.resx">
       <DependentUpon>202004030826357_updateConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004051514043_UpdateDBPolicy.resx">
+      <DependentUpon>202004051514043_UpdateDBPolicy.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
