@@ -53,8 +53,8 @@ namespace medical_care.Controllers
                     break;
             }
 
-            int pageSize = 3;
-            int pageNumber = (page ?? 1);
+            //int pageSize = 3;
+            //int pageNumber = (page ?? 1);
 
 
             //return View(model.ToPagedList(pageNumber, pageSize));
