@@ -12,9 +12,12 @@ namespace medical_care.Models
         [Key]
         public int Id { get; set; }
         public string PolicyName { get; set; }
+        public string CompanyName { get; set; }
+        public string HospitalName { get; set; }
         public decimal PolicyAmount { get; set; }
         public int PolicyDuration { get; set; }
         public decimal Emi { get; set; }
+        public DateTime RequestDate { get; set; }
         public DateTime PolicyStart { get; set; }
         public DateTime PolicyEnd { get; set; }
         public DateTime CreatedAt { get; set; }
@@ -27,6 +30,8 @@ namespace medical_care.Models
         public int PolicyId { get; set; }
         [ForeignKey("PolicyId")]
         public virtual Policy Policy { get; set; }
+        public virtual Company Company { get; set; }
+        public virtual Hospital Hospital { get; set; }
         public PolicyOnEmp()
         {
             CreatedAt = DateTime.Now;

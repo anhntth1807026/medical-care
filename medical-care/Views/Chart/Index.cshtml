@@ -1,0 +1,207 @@
+﻿
+@{
+    ViewBag.Title = "GetData";
+}
+<script src="~/Content/chart/highcharts.js"></script>
+<script src="~/Content/chart/accessibility.js"></script>
+<script src="~/Content/chart/export-data.js"></script>
+<script src="~/Content/chart/exporting.js"></script>
+<style>
+    .highcharts-figure, .highcharts-data-table table {
+        min-width: 320px;
+        max-width: 800px;
+        margin: 1em auto;
+    }
+
+    .highcharts-data-table table {
+        font-family: Verdana, sans-serif;
+        border-collapse: collapse;
+        border: 1px solid #EBEBEB;
+        margin: 10px auto;
+        text-align: center;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .highcharts-data-table caption {
+        padding: 1em 0;
+        font-size: 1.2em;
+        color: #555;
+    }
+
+    .highcharts-data-table th {
+        font-weight: 600;
+        padding: 0.5em;
+    }
+
+    .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+        padding: 0.5em;
+    }
+
+    .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+        background: #f8f8f8;
+    }
+
+    .highcharts-data-table tr:hover {
+        background: #f1f7ff;
+    }
+
+
+    input[type="number"] {
+        min-width: 50px;
+    }
+</style>
+
+<h2 class="text-center">GetData</h2>
+
+@*<input type="text" name="datefilter" value="" class="form-control" />*@
+
+<div class="row">
+    <div class="col-md-12">
+        <div id="curve_chart" style="height: 500px"></div>
+    </div>
+</div>
+
+
+<div class="jumbotron">
+    <figure class="highcharts-figure">
+        @*<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>*@
+        <div id="container"></div>
+       
+    </figure>
+</div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+@section jsFooter
+{
+    <script type="text/javascript">
+
+        $(function () {
+            // init start time and end time;
+            //var startDate = new Date();
+            //startDate.setFullYear(startDate.getFullYear() - 1);
+            //var endDate = new Date();
+            //// check start and end parameter
+            //var startPara = getParameterFromUrl('start');
+            //if (startPara != null) {
+            //    startDate = new Date(startPara);
+            //}
+            //var endPara = getParameterFromUrl('end');
+            //if (endPara != null) {
+            //    endDate = new Date(endPara);
+            //}
+            //$('input[name="datefilter"]').daterangepicker({
+            //    autoUpdateInput: true,
+            //    startDate: startDate,
+            //    endDate: endDate,
+            //    locale: {
+            //        cancelLabel: 'Clear'
+            //    },
+            //    ranges: {
+            //        'Today': [moment(), moment()],
+            //        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            //        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            //        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            //        'This Month': [moment().startOf('month'), moment().endOf('month')],
+            //        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            //    }
+            //});
+            //$('input[name="datefilter"]').on('apply.daterangepicker',
+            //    function (ev, picker) {
+            //        var start = picker.startDate.format('YYYY-MM-DD');
+            //        var end = picker.endDate.format('YYYY-MM-DD');
+            //        window.location.href = window.location.href.split('?')[0] + '?start=' + start + '&end=' + end;
+            //    });
+            //$('input[name="datefilter"]').on('cancel.daterangepicker', function (ev, picker) {
+            //    $(this).val('');
+            //});
+            $.ajax({
+                url: `/Chart/GetChartData?start=${startPara}&end=${endPara}`,
+                type: 'GET',
+                success: function (responseData) {
+                    google.charts.load('current', { 'packages': ['corechart'] });
+                    google.charts.setOnLoadCallback(drawChart);
+                    function drawChart() {
+                        var data = new google.visualization.DataTable();
+                        data.addColumn('date', 'Thời gian');
+                        data.addColumn('number', 'Policy On Employee');
+                        for (var i = 0; i < responseData.length; i++) {
+                            data.addRow([new Date(responseData[i].Date), responseData[i].Count]);
+                        }
+                        var options = {
+                            title: 'Thống kê số lượng Policy on Employee theo khoảng thời gian',
+                            curveType: 'function',
+                            legend: { position: 'bottom' }
+                        };
+                        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+                        chart.draw(data, options);
+                    }
+                }
+            });
+        });
+        function getParameterFromUrl(parameter) {
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            return url.searchParams.get(parameter);
+        }
+
+
+        $(document).ready(function () {
+
+            $.getJSON("/Chart/GetData", function (data) {
+
+                Highcharts.chart('container', {
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false,
+                        type: 'pie'
+                    },
+                    title: {
+                        text: 'Browser market shares in January, 2018'
+                    },
+                    tooltip: {
+                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                    },
+                    accessibility: {
+                        point: {
+                            valueSuffix: '%'
+                        }
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: true,
+                                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                            }
+                        }
+                    },
+                    series: [{
+                        name: 'Brands',
+                        colorByPoint: true,
+                        data: [{
+                            name: 'Bảo hiểm y tế',
+                            y: data.Bhyt,
+                            sliced: true,
+                            selected: true
+                        }, {
+                            name: 'Bảo hiểm sức khỏe',
+                            y: data.Bhsk
+                        }, {
+                            name: 'Bảo hiểm nhân thọ',
+                            y: data.Bhnt
+                        }, {
+                            name: 'Bảo hiểm phi nhân thọ',
+                            y: data.Bhpnt
+                        }]
+                    }]
+                });
+            });
+
+        });
+
+    </script>
+}

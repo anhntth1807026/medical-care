@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<medical_care.Models.PolicyOnEmp>
 
-@*https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css*@
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <div class="app-main__inner">
     <div class="app-page-title">
         <div class="page-title-wrapper">
@@ -17,6 +17,27 @@
             </div>
         </div>
     </div>
+    <form action="/PolicyOnEmps/Index/" method="get" id="listcontracts">
+        <div class="row">
+            <div class="dataTables_length col-md-8 text-primary font-weight-bold" id="dataTable_length">
+                Search Status&nbsp;
+                <label>
+                    @Html.DropDownList("listcontracts", null, new { @class = "custom-select custom-select-sm form-control form-control-sm" })
+                </label>
+            </div>
+            <div col-md-4 >
+                <div class="float-right mt-2 pr-4">
+                    <div id="reportrange" class="text-primary font-weight-bold" style="cursor: pointer; border-radius: 5px">
+                        Choose Time:&nbsp;
+                        <i class="fa fa-calendar text-dark"></i>&nbsp;
+                        <span class="text-dark font-weight-light"></span> <i class="fa fa-caret-down text-dark"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </form>
+    
     <div class="row">
         <div class="col-12">
             <div class="main-card mb-3 card">
@@ -29,6 +50,7 @@
                                        style="width:100%">
                                     <thead>
                                         <tr>
+                                            <th rowspan="1" colspan="1"><input type="checkbox" id="checkAll_InsurancePackage" />Check All</th>
                                             <th>
                                                 @Html.DisplayNameFor(model => model.Employee.Id)
                                             </th>
@@ -44,6 +66,13 @@
                                             <th>
                                                 Amount(USD)
                                             </th>
+
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.PolicyDuration)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.RequestDate)
+                                            </th>
                                             <th>
                                                 @Html.DisplayNameFor(model => model.PolicyStart)
                                             </th>
@@ -53,8 +82,6 @@
                                             <th>
                                                 @Html.DisplayNameFor(model => model.Status)
                                             </th>
-                                            @*<th>Action</th>*@
-                                            <th>Action</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -62,8 +89,13 @@
                                     {
                                         <tr>
                                             <td>
+                                                <input type="checkbox" class="check" value="@item.Id" />
+                                                @Html.AntiForgeryToken()
+                                            </td>
+                                            <td>
                                                 @Html.DisplayFor(modelItem => item.Employee.Id)
-                                            </td><td>
+                                            </td>
+                                            <td>
                                                 @Html.DisplayFor(modelItem => item.Employee.UserName)
                                             </td>
                                             <td>
@@ -77,6 +109,13 @@
                                                 @Html.DisplayFor(modelItem => item.PolicyAmount)
                                             </td>
                                             <td>
+                                                @Html.DisplayFor(modelItem => item.PolicyDuration)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.RequestDate)
+                                            </td>
+                                            <td>
                                                 @Html.DisplayFor(modelItem => item.PolicyStart)
                                             </td>
                                             <td>
@@ -85,14 +124,27 @@
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.Status)
                                             </td>
-                                            @*<td>
-                                                @Html.ActionLink("Check For Status", "Edit", new { id = item.Id }, new { @class = "btn btn-alternate p-1" })
-                                            </td>*@
+                                            
                                             <td>@Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-info p-1" }) </td>
-                                            <td>@Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger p-1" })</td>
+                                            
+
                                         </tr>
                                     }
                                 </table>
+                                <div class="col-3 mt-2">
+                                    <div class="form-group mr-3">
+                                        <select class="form-control mr-2" id="select-action">
+                                            <option value="6">--Choose Action--</option>
+                                            <option value="0">Deactive</option>
+                                            <option value="1">Active</option>
+                                            <option value="2">Pending</option>
+                                            <option value="3">Confirm</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-9">
+                                    <button type="button" class="btn btn-success" style="margin-top: 8px;" id="action_contract">Confirm</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -102,14 +154,18 @@
     </div>
 </div>
 @*<script type="text/javascript" src="~/Content/vendor/jquery/jquery-3.2.1.min.js"></script>*@
+
 <script type="text/javascript" src="~/Content/scripts/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script>
     $(document).ready(function () {
         $('#example').DataTable(
             {
                 "aLengthMenu": [[5, 10, 25, -1], [5, 10, 25, "All"]],
                 "iDisplayLength": 5,
-                "order": [[ 0, 'asc' ], [ 1, 'asc' ]]
+                "order": [[0, 'asc'], [1, 'asc']]
             }
         );
     });
@@ -122,5 +178,105 @@
             }
         }
     }
+
+    $('#checkAll_InsurancePackage').click(function () {
+        $(".check").prop('checked',
+            $(this).prop('checked'));
+    });
+
+    $('#action_contract').click(function () {
+        var selectedIDs = new Array();
+        var action = $('#select-action').val();
+        if (action == 6) {
+            alert('Please select the action you want to perform!');
+            return;
+        }
+        $('input:checkbox.check').each(function () {
+            if ($(this).prop('checked')) {
+                selectedIDs.push($(this).val());
+            }
+        });
+        if (selectedIDs.length <= 0) {
+            alert('You have not selected insurance package !');
+            return;
+        }
+        if (confirm("Do you want to choose this action?")) {
+            changeStatusPTTime(selectedIDs, action);
+        }
+    });
+    function changeStatusPTTime(selectedIDs, action) {
+        $.ajax({
+            url: "/PolicyOnEmps/ChangeStatus",
+            type: "POST",
+            dataType: "json",
+            data: {
+                __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val(),
+                selectedIDs,
+                action
+            },
+            success: function (res) {
+                if (!res == false) {
+                    window.location.reload();
+                }
+            },
+            error: function () {
+                alert('error');
+            }
+        });
+    }
+
+    $(function () {
+        $("#listcontracts").change(function () {
+            $("#listcontracts").submit();
+        });
+    });
+
+
+
+
+    $(function () {
+        var startDate, endDate;
+        var start = moment().subtract(29, 'days');
+        var end = moment();
+
+        function cb(start, end) {
+            $('#reportrange span').html(start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD'));
+        }
+        $('#reportrange').daterangepicker({
+            startDate: start,
+            endDate: end,
+            ranges: {
+                'Last week': [moment().subtract(6, 'days'), moment()],
+                'Last 30 days': [moment().subtract(29, 'days'), moment()],
+                'This month': [moment().startOf('month'), moment().endOf('month')],
+                'Last month': [
+                    moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')
+                ]
+            },
+            "firstDay": 1
+        }, cb);
+        cb(start, end);
+        $('#reportrange').on('cancel.daterangepicker', function (ev, picker) {
+
+            $('#reportrange').val('');
+        });
+        $('#reportrange').on('apply.daterangepicker',
+            function (ev, picker) {
+
+                startDate = picker.startDate.format('YYYY-MM-DD');
+                endDate = picker.endDate.format('YYYY-MM-DD');
+                
+                var listcontracts = $('select#listcontracts option:checked').val();
+                window.location.href = window.location.href.split('?')[0] +
+                    '?listcontracts=' +
+                    listcontracts +
+                    '&startDate=' +
+                    startDate +
+                    '&endDate=' +
+                    endDate;
+                $('#reportrange span').html(startDate.format('YYYY-MM-DD') + ' - ' + endDate.format('YYYY-MM-DD'));
+            });
+    });
+
 </script>
 

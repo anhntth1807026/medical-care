@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using medical_care.Data;
 using medical_care.Models;
+using Microsoft.AspNet.Identity;
 
 namespace medical_care.Controllers
 {
@@ -17,9 +19,41 @@ namespace medical_care.Controllers
         private MyDbContext db = new MyDbContext();
 
         // GET: PolicyOnEmps
-        public ActionResult Index()
+        public ActionResult Index(string listcontracts, DateTime? startDate, DateTime? endDate)
         {
+            ViewBag.listcontracts = new List<SelectListItem>()
+            {
+
+                new SelectListItem() { Text="All", Value= "4" },
+                new SelectListItem() { Text="Confirm", Value= "3"},
+
+                new SelectListItem() { Text="Pending", Value= "2" },
+                new SelectListItem() { Text="Deactive", Value= "0"},
+                new SelectListItem() { Text="Active", Value= "1" },
+
+            };
             var policyOnEmps = db.PolicyOnEmps.Include(p => p.Employee).Include(p => p.Policy);
+            if (startDate != null && endDate != null)
+            {
+                policyOnEmps = policyOnEmps.Where(x => x.CreatedAt >= startDate && x.CreatedAt <= endDate);
+            }
+            switch (listcontracts)
+            {
+                case "1":
+                    policyOnEmps = policyOnEmps.Where(x => x.Status == PolOnEmpStatus.ACTIVE);
+                    break;
+                case "2":
+                    policyOnEmps = policyOnEmps.Where(x => x.Status == PolOnEmpStatus.PENDING);
+                    break;
+                case "3":
+                    policyOnEmps = policyOnEmps.Where(x => x.Status == PolOnEmpStatus.CONFIRM);
+                    break;
+                case "0":
+                    policyOnEmps = policyOnEmps.Where(x => x.Status == PolOnEmpStatus.DEACTIVE);
+                    break;
+                default:
+                    break;
+            }
             return View(policyOnEmps.ToList());
         }
 
@@ -87,11 +121,14 @@ namespace medical_care.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(PolicyOnEmp policyOnEmp, string dateRange)
+        [ValidateInput(false)]
+        public ActionResult Edit([Bind(Include = "PolicyName,CompanyName,HospitalName,PolicyAmount,PolicyStart,PolicyEnd,CreatedAt,UpdatedAt,Status")] PolicyOnEmp policyOnEmp)
+        //[Bind(Include = "PolicyName,CompanyName,HospitalName,PolicyAmount,PolicyStart,PolicyEnd,UpdatedAt,Status")]
         {
             if (ModelState.IsValid)
             {
-                //PolicyRequest currentPolicyOnEmp = db.PolicyRequests.Find(policyOnEmp.Id);
+
+                //var currentPolicyOnEmp = db.PolicyOnEmps.Find(policyOnEmp.Id);
                 //if (currentPolicyOnEmp == null)
                 //{
                 //    return new HttpNotFoundResult();
@@ -99,6 +136,7 @@ namespace medical_care.Controllers
 
                 //var startDate = DateTime.Now;
                 //var endDate = DateTime.Now.AddYears(1);
+
                 //try
                 //{
                 //    var dateSplit = dateRange.Split('-');
@@ -113,26 +151,31 @@ namespace medical_care.Controllers
                 //{
                 //    Console.WriteLine(e);
                 //}
-                //var policyToEmp = new PolicyOnEmp()
+
+                //policyOnEmp = new PolicyOnEmp()
                 //{
                 //    PolicyId = currentPolicyOnEmp.PolicyId,
-                //    EmployeeId = currentPolicyOnEmp.Id,
+                //    EmployeeId = (HttpContext.User.Identity.GetUserId()),
+                //    RequestDate = DateTime.Now,
+                //    PolicyDuration = currentPolicyOnEmp.PolicyDuration,
+                //    PolicyAmount = currentPolicyOnEmp.PolicyAmount,
                 //    PolicyName = currentPolicyOnEmp.PolicyName,
-                //    PolicyAmount = currentPolicyOnEmp.Amount,
-                //    Emi = currentPolicyOnEmp.Emi,
                 //    PolicyStart = startDate,
                 //    PolicyEnd = endDate,
-                //    CreatedAt = DateTime.Now,
-                //    Status = PolOnEmpStatus.ACTIVE
+                //    CompanyName = currentPolicyOnEmp.Company.Name,
+                //    HospitalName = currentPolicyOnEmp.Hospital.Name,
+                //    UpdatedAt = DateTime.Now.ToString(),
+                //    Status = PolOnEmpStatus.PENDING
                 //};
 
                 //db.Entry(policyToEmp).State = EntityState.Modified;
-                //db.PolicyOnEmps.Add(policyToEmp);
+                //db.PolicyOnEmps.AddOrUpdate(policyEmp);
                 //db.SaveChanges();
                 //return RedirectToAction("Index", "PolicyOnEmps");
+
                 db.Entry(policyOnEmp).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "PolicyOnEmps");
             }
             ViewBag.EmployeeId = new SelectList(db.Users, "Id", "Email", policyOnEmp.EmployeeId);
             ViewBag.PolicyId = new SelectList(db.Policies, "PolicyId", "Name", policyOnEmp.PolicyId);
@@ -173,5 +216,21 @@ namespace medical_care.Controllers
             }
             base.Dispose(disposing);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangeStatus(PolOnEmpStatus action, int[] selectedIDs)
+        {
+            foreach (int IDs in selectedIDs)
+            {
+                PolicyOnEmp policyOnEmp = db.PolicyOnEmps.Find(IDs);
+                db.PolicyOnEmps.Attach(policyOnEmp);
+                policyOnEmp.Status = action;
+            }
+            db.SaveChanges();
+            return Json(selectedIDs, JsonRequestBehavior.AllowGet);
+        }
+
+
     }
 }

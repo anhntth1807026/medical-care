@@ -382,124 +382,124 @@ namespace medical_care.Migrations
                     HospitalId = 3,
                 }
             );
-            context.PolicyRequests.AddOrUpdate(
-                p => p.RequestId,
-                new Models.PolicyRequest
-                {
-                    RequestId = 1,
-                    RequestDate = Convert.ToDateTime("3/25/2020"),
-                    Amount = 6000,
-                    Emi = 500,
-                    CompanyName = "Công ty TNHH TM Y tế Việt",
-                    PolicyName = "Bảo hiểm sức khỏe",
-                    Status = PolicyRequestStatus.PENDING,
-                    Id = "A0011",
-                    PolicyId = 1,
-                },
-                new Models.PolicyRequest
-                {
-                    RequestId = 2,
-                    RequestDate = Convert.ToDateTime("3/27/2020"),
-                    Amount = 120000,
-                    Emi = 10000,
-                    CompanyName = "CÔNG TY CP THIẾT BỊ Y TẾ BẢO THẠCH",
-                    PolicyName = "Bảo hiểm phi nhân thọ",
-                    Status = PolicyRequestStatus.PENDING,
-                    Id = "A0012",
-                    PolicyId = 3,
-                },
-                new Models.PolicyRequest
-                {
-                    RequestId = 3,
-                    RequestDate = Convert.ToDateTime("3/26/2020"),
-                    Amount = 2400,
-                    Emi = 200,
-                    CompanyName = "Công ty TNHH TM Sản Xuất Thiết Bị Y TẾ T & D",
-                    PolicyName = "Bảo hiểm y tế",
-                    Status = PolicyRequestStatus.PENDING,
-                    Id = "A0013",
-                    PolicyId = 4,
-                },
-                new Models.PolicyRequest
-                {
-                    RequestId = 4,
-                    RequestDate = Convert.ToDateTime("3/29/2020"),
-                    Amount = 16000,
-                    Emi = 50000,
-                    CompanyName = "Tập đoàn Phương Đông",
-                    PolicyName = "Bảo hiểm nhân thọ",
-                    Status = PolicyRequestStatus.PENDING,
-                    Id = "A0014",
-                    PolicyId = 2,
-                }
-            );
-            context.PolicyOnEmps.AddOrUpdate(
-                p => p.Id,
-                new Models.PolicyOnEmp
-                {
-                    Id = 1,
-                    PolicyName = "Bảo hiểm sức khỏe",
-                    PolicyAmount = 6000,
-                    PolicyDuration = 1,
-                    Emi = 0,
-                    PolicyStart = Convert.ToDateTime("3/25/2020"),
-                    PolicyEnd = Convert.ToDateTime("3/25/2021"),
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = "Null",
-                    DeletedAt = "NULL",
-                    Status = PolOnEmpStatus.ACTIVE,
-                    EmployeeId = "A0011",
-                    PolicyId = 1,
-                },
-                new Models.PolicyOnEmp
-                {
-                    Id = 2,
-                    PolicyName = "Bảo hiểm phi nhân thọ",
-                    PolicyAmount = 120000,
-                    PolicyDuration = 1,
-                    Emi = 0,
-                    PolicyStart = Convert.ToDateTime("3/26/2020"),
-                    PolicyEnd = Convert.ToDateTime("3/26/2021"),
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = "Null",
-                    DeletedAt = "NULL",
-                    Status = PolOnEmpStatus.ACTIVE,
-                    EmployeeId = "A0012",
-                    PolicyId = 3,
-                },
-                new Models.PolicyOnEmp
-                {
-                    Id = 3,
-                    PolicyName = "Bảo hiểm y tế",
-                    PolicyAmount = 2400,
-                    PolicyDuration = 1,
-                    Emi = 0,
-                    PolicyStart = Convert.ToDateTime("3/28/2020"),
-                    PolicyEnd = Convert.ToDateTime("3/28/2021"),
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = "Null",
-                    DeletedAt = "NULL",
-                    Status = PolOnEmpStatus.ACTIVE,
-                    EmployeeId = "A0013",
-                    PolicyId = 4,
-                },
-                new Models.PolicyOnEmp
-                {
-                    Id = 4,
-                    PolicyName = "Bảo hiểm nhân thọ",
-                    PolicyAmount = 16000,
-                    PolicyDuration = 1,
-                    Emi = 0,
-                    PolicyStart = Convert.ToDateTime("3/26/2020"),
-                    PolicyEnd = Convert.ToDateTime("3/26/2022"),
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = "Null",
-                    DeletedAt = "NULL",
-                    Status = PolOnEmpStatus.ACTIVE,
-                    EmployeeId = "A0014",
-                    PolicyId = 2,
-                }
-            );
+            //context.PolicyRequests.AddOrUpdate(
+            //    p => p.RequestId,
+            //    new Models.PolicyRequest
+            //    {
+            //        RequestId = 1,
+            //        RequestDate = Convert.ToDateTime("3/25/2020"),
+            //        Amount = 6000,
+            //        Emi = 500,
+            //        CompanyName = "Công ty TNHH TM Y tế Việt",
+            //        PolicyName = "Bảo hiểm sức khỏe",
+            //        Status = PolicyRequestStatus.PENDING,
+            //        Id = "A0011",
+            //        PolicyId = 1,
+            //    },
+            //    new Models.PolicyRequest
+            //    {
+            //        RequestId = 2,
+            //        RequestDate = Convert.ToDateTime("3/27/2020"),
+            //        Amount = 120000,
+            //        Emi = 10000,
+            //        CompanyName = "CÔNG TY CP THIẾT BỊ Y TẾ BẢO THẠCH",
+            //        PolicyName = "Bảo hiểm phi nhân thọ",
+            //        Status = PolicyRequestStatus.PENDING,
+            //        Id = "A0012",
+            //        PolicyId = 3,
+            //    },
+            //    new Models.PolicyRequest
+            //    {
+            //        RequestId = 3,
+            //        RequestDate = Convert.ToDateTime("3/26/2020"),
+            //        Amount = 2400,
+            //        Emi = 200,
+            //        CompanyName = "Công ty TNHH TM Sản Xuất Thiết Bị Y TẾ T & D",
+            //        PolicyName = "Bảo hiểm y tế",
+            //        Status = PolicyRequestStatus.PENDING,
+            //        Id = "A0013",
+            //        PolicyId = 4,
+            //    },
+            //    new Models.PolicyRequest
+            //    {
+            //        RequestId = 4,
+            //        RequestDate = Convert.ToDateTime("3/29/2020"),
+            //        Amount = 16000,
+            //        Emi = 50000,
+            //        CompanyName = "Tập đoàn Phương Đông",
+            //        PolicyName = "Bảo hiểm nhân thọ",
+            //        Status = PolicyRequestStatus.PENDING,
+            //        Id = "A0014",
+            //        PolicyId = 2,
+            //    }
+            //);
+            //context.PolicyOnEmps.AddOrUpdate(
+            //    p => p.Id,
+            //    new Models.PolicyOnEmp
+            //    {
+            //        Id = 1,
+            //        PolicyName = "Bảo hiểm sức khỏe",
+            //        PolicyAmount = 6000,
+            //        PolicyDuration = 1,
+            //        Emi = 0,
+            //        PolicyStart = Convert.ToDateTime("3/25/2020"),
+            //        PolicyEnd = Convert.ToDateTime("3/25/2021"),
+            //        CreatedAt = DateTime.Now,
+            //        UpdatedAt = "Null",
+            //        DeletedAt = "NULL",
+            //        Status = PolOnEmpStatus.ACTIVE,
+            //        EmployeeId = "A0011",
+            //        PolicyId = 1,
+            //    },
+            //    new Models.PolicyOnEmp
+            //    {
+            //        Id = 2,
+            //        PolicyName = "Bảo hiểm phi nhân thọ",
+            //        PolicyAmount = 120000,
+            //        PolicyDuration = 1,
+            //        Emi = 0,
+            //        PolicyStart = Convert.ToDateTime("3/26/2020"),
+            //        PolicyEnd = Convert.ToDateTime("3/26/2021"),
+            //        CreatedAt = DateTime.Now,
+            //        UpdatedAt = "Null",
+            //        DeletedAt = "NULL",
+            //        Status = PolOnEmpStatus.ACTIVE,
+            //        EmployeeId = "A0012",
+            //        PolicyId = 3,
+            //    },
+            //    new Models.PolicyOnEmp
+            //    {
+            //        Id = 3,
+            //        PolicyName = "Bảo hiểm y tế",
+            //        PolicyAmount = 2400,
+            //        PolicyDuration = 1,
+            //        Emi = 0,
+            //        PolicyStart = Convert.ToDateTime("3/28/2020"),
+            //        PolicyEnd = Convert.ToDateTime("3/28/2021"),
+            //        CreatedAt = DateTime.Now,
+            //        UpdatedAt = "Null",
+            //        DeletedAt = "NULL",
+            //        Status = PolOnEmpStatus.ACTIVE,
+            //        EmployeeId = "A0013",
+            //        PolicyId = 4,
+            //    },
+            //    new Models.PolicyOnEmp
+            //    {
+            //        Id = 4,
+            //        PolicyName = "Bảo hiểm nhân thọ",
+            //        PolicyAmount = 16000,
+            //        PolicyDuration = 1,
+            //        Emi = 0,
+            //        PolicyStart = Convert.ToDateTime("3/26/2020"),
+            //        PolicyEnd = Convert.ToDateTime("3/26/2022"),
+            //        CreatedAt = DateTime.Now,
+            //        UpdatedAt = "Null",
+            //        DeletedAt = "NULL",
+            //        Status = PolOnEmpStatus.ACTIVE,
+            //        EmployeeId = "A0014",
+            //        PolicyId = 2,
+            //    }
+            //);
 
 
 
@@ -783,10 +783,6 @@ namespace medical_care.Migrations
                 }
             );
 
-
-            var userManager = new UserManager<Employee>(new UserStore<Employee>(context));
-
-
             context.Roles.AddOrUpdate(
                 p => p.Id,
                 new IdentityRole()
@@ -800,6 +796,10 @@ namespace medical_care.Migrations
                     Name = "employee",
                 }
             );
+            var userManager = new UserManager<Employee>(new UserStore<Employee>(context));
+
+
+
 
             userManager.AddToRole("A0011", "employee");
             userManager.AddToRole("A0012", "admin");

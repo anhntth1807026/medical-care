@@ -155,6 +155,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
+    <Compile Include="Controllers\ChartController.cs" />
     <Compile Include="Controllers\CompaniesController.cs" />
     <Compile Include="Controllers\ConfirmRequestsController.cs" />
     <Compile Include="Controllers\ContactUsController.cs" />
@@ -171,29 +172,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004020346537_initializeDB.cs" />
-    <Compile Include="Migrations\202004020346537_initializeDB.Designer.cs">
-      <DependentUpon>202004020346537_initializeDB.cs</DependentUpon>
+    <Compile Include="Migrations\202004061058523_UpdateDB.cs" />
+    <Compile Include="Migrations\202004061058523_UpdateDB.Designer.cs">
+      <DependentUpon>202004061058523_UpdateDB.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004020516457_UpdateDB.cs" />
-    <Compile Include="Migrations\202004020516457_UpdateDB.Designer.cs">
-      <DependentUpon>202004020516457_UpdateDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004021833394_UpdateDBSQl.cs" />
-    <Compile Include="Migrations\202004021833394_UpdateDBSQl.Designer.cs">
-      <DependentUpon>202004021833394_UpdateDBSQl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004030826357_updateConfiguration.cs" />
-    <Compile Include="Migrations\202004030826357_updateConfiguration.Designer.cs">
-      <DependentUpon>202004030826357_updateConfiguration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004051514043_UpdateDBPolicy.cs" />
-    <Compile Include="Migrations\202004051514043_UpdateDBPolicy.Designer.cs">
-      <DependentUpon>202004051514043_UpdateDBPolicy.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004060529122_UpdateDb2.cs" />
-    <Compile Include="Migrations\202004060529122_UpdateDb2.Designer.cs">
-      <DependentUpon>202004060529122_UpdateDb2.cs</DependentUpon>
+    <Compile Include="Migrations\202004061101206_UpdateDB2.cs" />
+    <Compile Include="Migrations\202004061101206_UpdateDB2.Designer.cs">
+      <DependentUpon>202004061101206_UpdateDB2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppRole.cs" />
@@ -215,6 +200,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\chart\accessibility.js" />
+    <Content Include="Content\chart\export-data.js" />
+    <Content Include="Content\chart\exporting.js" />
+    <Content Include="Content\chart\highcharts.js" />
     <Content Include="Content\ckeditor\adapters\jquery.js" />
     <Content Include="Content\ckeditor\build-config.js" />
     <Content Include="Content\ckeditor\ckeditor.js" />
@@ -779,6 +768,7 @@
     <Content Include="Content\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <None Include="Properties\PublishProfiles\MedicalCareInsurance - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\daterangepicker.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -866,6 +856,7 @@
     <Content Include="Views\ConfirmRequests\Details.cshtml" />
     <Content Include="Views\ConfirmRequests\Edit.cshtml" />
     <Content Include="Views\ConfirmRequests\Index.cshtml" />
+    <Content Include="Views\Chart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -884,23 +875,11 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004020346537_initializeDB.resx">
-      <DependentUpon>202004020346537_initializeDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004061058523_UpdateDB.resx">
+      <DependentUpon>202004061058523_UpdateDB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004020516457_UpdateDB.resx">
-      <DependentUpon>202004020516457_UpdateDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004021833394_UpdateDBSQl.resx">
-      <DependentUpon>202004021833394_UpdateDBSQl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004030826357_updateConfiguration.resx">
-      <DependentUpon>202004030826357_updateConfiguration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004051514043_UpdateDBPolicy.resx">
-      <DependentUpon>202004051514043_UpdateDBPolicy.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004060529122_UpdateDb2.resx">
-      <DependentUpon>202004060529122_UpdateDb2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004061101206_UpdateDB2.resx">
+      <DependentUpon>202004061101206_UpdateDB2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

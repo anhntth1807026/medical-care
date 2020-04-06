@@ -78,25 +78,43 @@ namespace medical_care.Controllers
         [ValidateAntiForgeryToken]
 
         [ActionName("AddRequest")]
-        public ActionResult AddRequestConfirm(int? id)
+        public ActionResult AddRequestConfirm(int? id, string dateRange)
         {
             if (ModelState.IsValid)
             {
                 var policy = db.Policies.Find(id);
-
-                var policyRq = new PolicyRequest()
+                var startDate = DateTime.Now;
+                var endDate = DateTime.Now.AddYears(1);
+                try
+                {
+                    var dateSplit = dateRange.Split('-');
+                    if (dateSplit.Length != 2)
+                    {
+                        return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "bad Flower");
+                    }
+                    startDate = DateTime.ParseExact(dateSplit[0], "MM/DD/YYYY", null);
+                    endDate = DateTime.ParseExact(dateSplit[1], "MM/DD/YYYY", null);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+                var policyRq = new PolicyOnEmp()
                 {
                     PolicyId = policy.PolicyId,
-                    Id = (HttpContext.User.Identity.GetUserId()),
+                    EmployeeId = (HttpContext.User.Identity.GetUserId()),
                     RequestDate = DateTime.Now,
-                    Amount = policy.Amount,
+                    PolicyDuration = policy.Duration,
+                    PolicyAmount = policy.Amount,
                     PolicyName = policy.Name,
+                    PolicyStart = startDate,
+                    PolicyEnd = endDate,
                     CompanyName = policy.Company.Name,
-                    Status = PolicyRequestStatus.PENDING
+                    HospitalName = policy.Hospital.Name,
+                    Status = PolOnEmpStatus.PENDING
                 };
-                db.PolicyRequests.Add(policyRq);
+                db.PolicyOnEmps.Add(policyRq);
                 db.SaveChanges();
-
             }
             return RedirectToAction("Index", "PolicyClient");
         }

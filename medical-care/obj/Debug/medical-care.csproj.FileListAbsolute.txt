@@ -270,13 +270,9 @@ C:\Users\pc\Desktop\cloneprjs3\medical-care\medical-care\bin\Newtonsoft.Json.xml
 C:\Users\pc\Desktop\cloneprjs3\medical-care\medical-care\bin\Antlr3.Runtime.pdb
 C:\Users\pc\Desktop\cloneprjs3\medical-care\medical-care\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\pc\Desktop\cloneprjs3\medical-care\medical-care\obj\Debug\medical-care.csprojAssemblyReference.cache
-C:\Users\pc\Desktop\cloneprjs3\medical-care\medical-care\obj\Debug\medical_care.Migrations.initializeDB.resources
-C:\Users\pc\Desktop\cloneprjs3\medical-care\medical-care\obj\Debug\medical_care.Migrations.UpdateDB.resources
-C:\Users\pc\Desktop\cloneprjs3\medical-care\medical-care\obj\Debug\medical_care.Migrations.UpdateDBSQl.resources
-C:\Users\pc\Desktop\cloneprjs3\medical-care\medical-care\obj\Debug\medical-care.csproj.GenerateResource.cache
 C:\Users\pc\Desktop\cloneprjs3\medical-care\medical-care\obj\Debug\medical-care.csproj.CopyComplete
 C:\Users\pc\Desktop\cloneprjs3\medical-care\medical-care\obj\Debug\medical-care.dll
 C:\Users\pc\Desktop\cloneprjs3\medical-care\medical-care\obj\Debug\medical-care.pdb
-C:\Users\pc\Desktop\cloneprjs3\medical-care\medical-care\obj\Debug\medical_care.Migrations.updateConfiguration.resources
-C:\Users\pc\Desktop\cloneprjs3\medical-care\medical-care\obj\Debug\medical_care.Migrations.UpdateDBPolicy.resources
-C:\Users\pc\Desktop\cloneprjs3\medical-care\medical-care\obj\Debug\medical_care.Migrations.UpdateDb2.resources
+C:\Users\pc\Desktop\cloneprjs3\medical-care\medical-care\obj\Debug\medical_care.Migrations.UpdateDB.resources
+C:\Users\pc\Desktop\cloneprjs3\medical-care\medical-care\obj\Debug\medical-care.csproj.GenerateResource.cache
+C:\Users\pc\Desktop\cloneprjs3\medical-care\medical-care\obj\Debug\medical_care.Migrations.UpdateDB2.resources
