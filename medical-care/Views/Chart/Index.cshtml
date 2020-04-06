@@ -78,41 +78,41 @@
     <script type="text/javascript">
 
         $(function () {
-            // init start time and end time;
-            //var startDate = new Date();
-            //startDate.setFullYear(startDate.getFullYear() - 1);
-            //var endDate = new Date();
-            //// check start and end parameter
-            //var startPara = getParameterFromUrl('start');
-            //if (startPara != null) {
-            //    startDate = new Date(startPara);
-            //}
-            //var endPara = getParameterFromUrl('end');
-            //if (endPara != null) {
-            //    endDate = new Date(endPara);
-            //}
-            //$('input[name="datefilter"]').daterangepicker({
-            //    autoUpdateInput: true,
-            //    startDate: startDate,
-            //    endDate: endDate,
-            //    locale: {
-            //        cancelLabel: 'Clear'
-            //    },
-            //    ranges: {
-            //        'Today': [moment(), moment()],
-            //        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-            //        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-            //        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-            //        'This Month': [moment().startOf('month'), moment().endOf('month')],
-            //        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-            //    }
-            //});
-            //$('input[name="datefilter"]').on('apply.daterangepicker',
-            //    function (ev, picker) {
-            //        var start = picker.startDate.format('YYYY-MM-DD');
-            //        var end = picker.endDate.format('YYYY-MM-DD');
-            //        window.location.href = window.location.href.split('?')[0] + '?start=' + start + '&end=' + end;
-            //    });
+             //init start time and end time;
+            var startDate = new Date();
+            startDate.setFullYear(startDate.getFullYear() - 1);
+            var endDate = new Date();
+            // check start and end parameter
+            var startPara = getParameterFromUrl('start');
+            if (startPara != null) {
+                startDate = new Date(startPara);
+            }
+            var endPara = getParameterFromUrl('end');
+            if (endPara != null) {
+                endDate = new Date(endPara);
+            }
+            $('input[name="datefilter"]').daterangepicker({
+                autoUpdateInput: true,
+                startDate: startDate,
+                endDate: endDate,
+                locale: {
+                    cancelLabel: 'Clear'
+                },
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                }
+            });
+            $('input[name="datefilter"]').on('apply.daterangepicker',
+                function (ev, picker) {
+                    var start = picker.startDate.format('YYYY-MM-DD');
+                    var end = picker.endDate.format('YYYY-MM-DD');
+                    window.location.href = window.location.href.split('?')[0] + '?start=' + start + '&end=' + end;
+                });
             //$('input[name="datefilter"]').on('cancel.daterangepicker', function (ev, picker) {
             //    $(this).val('');
             //});

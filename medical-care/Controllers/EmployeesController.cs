@@ -187,7 +187,7 @@ namespace medical_care.Controllers
                 var authManager = HttpContext.GetOwinContext().Authentication;
                 authManager.SignIn(
                     new AuthenticationProperties { IsPersistent = false }, ident);
-                return Redirect("/ManageUser");
+                return Redirect("/Chart");
             }
 
             Debug.WriteLine(admin + "@@@");
