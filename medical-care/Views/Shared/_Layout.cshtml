@@ -154,48 +154,61 @@
                     </div>*@
                 <div class="scrollbar-sidebar">
                     @*<div class="app-sidebar__inner">*@
-                        <ul class="vertical-nav-menu">
-
-                            <li class="app-sidebar__heading nav">Main Manage</li>
-                            <li>
-                                <i class="metismenu-icon pe-7s-users position-sticky opacity-8"></i>
-                                @Html.ActionLink("Manage User", "Index", "ManageUser")
-                            </li>
-                            <li>
-                                <i class="metismenu-icon pe-7s-id position-sticky opacity-8"></i>
-                                @Html.ActionLink("Manage Role", "Index", "ManageRole")
-                            </li>
-                            <li>
-                                <i class="metismenu-icon pe-7s-news-paper position-sticky opacity-8"></i>
-                                @Html.ActionLink("Policies", "Index", "Policies")
-                            </li>
-                            <li>
-                                <i class="metismenu-icon pe-7s-culture position-sticky opacity-8"></i>
-                                @Html.ActionLink("Companies", "Index", "Companies")
-                            </li>
-                            <li>
-                                <i class="metismenu-icon pe-7s-culture position-sticky opacity-8 "></i>
-                                @Html.ActionLink("Hospitals", "Index", "Hospitals")
-                            </li>
-                            <li>
-
-                                <i class="metismenu-icon pe-7s-rocket position-sticky opacity-8"></i>
-                                @Html.ActionLink("Policy Request", "Index", "PolicyRequests")
-                            </li>
-                            <li>
-
-                                <i class="metismenu-icon pe-7s-check position-sticky opacity-8"></i>
-                                @Html.ActionLink("Confirm Request", "Index", "ConfirmRequests")
-                            </li>
-                            <li>
-                                <i class="metismenu-icon pe-7s-id position-sticky opacity-8"></i>
-                                @Html.ActionLink("Policy On Employees", "Index", "PolicyOnEmps")
-                            </li>
-                            <li>
-                                <i class="metismenu-icon pe-7s-paper-plane position-sticky opacity-8"></i>
-                                @Html.ActionLink("Contact Us", "Index", "ContactUs")
-                            </li>
-                        </ul>
+                    <ul class="vertical-nav-menu">
+                        <li class="app-sidebar__heading nav">Main Manage</li>
+                        <li>
+                            <a href="#">
+                                <i class="metismenu-icon pe-7s-users position-sticky opacity-8"></i>Manager User
+                                <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                            </a>
+                            <ul>
+                                <li>
+                                    <i class="metismenu-icon pe-7s-users position-sticky opacity-8"></i>
+                                    @Html.ActionLink("User", "Index", "ManageUser")
+                                </li>
+                                <li>
+                                    <i class="metismenu-icon pe-7s-id position-sticky opacity-8"></i>
+                                    @Html.ActionLink("Role", "Index", "ManageRole")
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="metismenu-icon pe-7s-id position-sticky opacity-8"></i>Manage Policy
+                                <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                            </a>
+                            <ul>
+                                <li>
+                                    <i class="metismenu-icon pe-7s-news-paper position-sticky opacity-8"></i>
+                                    @Html.ActionLink("Policies", "Index", "Policies")
+                                </li>
+                                <li>
+                                    <i class="metismenu-icon pe-7s-rocket position-sticky opacity-8"></i>
+                                    @Html.ActionLink("Policy Request", "Index", "PolicyRequests")
+                                </li>
+                                <li>
+                                    <i class="metismenu-icon pe-7s-check position-sticky opacity-8"></i>
+                                    @Html.ActionLink("Confirm Request", "Index", "ConfirmRequests")
+                                </li>
+                                <li>
+                                    <i class="metismenu-icon pe-7s-id position-sticky opacity-8"></i>
+                                    @Html.ActionLink("Policy On Employees", "Index", "PolicyOnEmps")
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <i class="metismenu-icon pe-7s-culture position-sticky opacity-8"></i>
+                            @Html.ActionLink("Companies", "Index", "Companies")
+                        </li>
+                        <li>
+                            <i class="metismenu-icon pe-7s-culture position-sticky opacity-8 "></i>
+                            @Html.ActionLink("Hospitals", "Index", "Hospitals")
+                        </li>
+                        <li>
+                            <i class="metismenu-icon pe-7s-paper-plane position-sticky opacity-8"></i>
+                            @Html.ActionLink("Contact Us", "Index", "ContactUs")
+                        </li>
+                    </ul>
                     @*</div>*@
                 </div>
             </div>
