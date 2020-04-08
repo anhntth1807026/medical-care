@@ -172,13 +172,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004061058523_UpdateDB.cs" />
-    <Compile Include="Migrations\202004061058523_UpdateDB.Designer.cs">
-      <DependentUpon>202004061058523_UpdateDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004061101206_UpdateDB2.cs" />
-    <Compile Include="Migrations\202004061101206_UpdateDB2.Designer.cs">
-      <DependentUpon>202004061101206_UpdateDB2.cs</DependentUpon>
+    <Compile Include="Migrations\202004080633088_initializeDB.cs" />
+    <Compile Include="Migrations\202004080633088_initializeDB.Designer.cs">
+      <DependentUpon>202004080633088_initializeDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppRole.cs" />
@@ -875,11 +871,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004061058523_UpdateDB.resx">
-      <DependentUpon>202004061058523_UpdateDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004061101206_UpdateDB2.resx">
-      <DependentUpon>202004061101206_UpdateDB2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004080633088_initializeDB.resx">
+      <DependentUpon>202004080633088_initializeDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
